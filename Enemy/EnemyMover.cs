@@ -8,7 +8,7 @@ public partial class EnemyMover : NavigationAgent3D {
 	[Export]
 	public float distanceToFlee = 40f;
 	[Export]
-	public float fleeSpeed = 10;
+	public float fleeSpeed = 5;
 	
 	private Node3D enemyNodeToMove = null;
 	private NavigationAgent3D navAgent = null;
@@ -18,14 +18,7 @@ public partial class EnemyMover : NavigationAgent3D {
 		if (enemyNodeToMove==null) {
 			enemyNodeToMove = GetParent<Node3D>();
 		}
-		if (navAgent==null) {
-			navAgent = this;
-			//if (NavigationAgent3D==typeof(this)) {
-			//	navAgent = this;
-			//} else {
-			//	navAgent = GetNode<NavigationAgent3D>("theNavigationAgent3D");
-			//}
-		}
+		navAgent = this;
 	}
 
 	public override void _Process(double delta) {
@@ -68,13 +61,26 @@ public partial class EnemyMover : NavigationAgent3D {
 		}
 	}
 	
+	private Vector2 randomnessTarget = Vector2.Zero;
+	private Vector2 randomness = Vector2.Zero;
+	
 	public override void _PhysicsProcess(double delta) {
 		if (!navAgent.IsNavigationFinished()) {
-			Vector3 nextPos = navAgent.GetNextPathPosition();
+			randomnessTarget.X = (float)GD.RandRange(-10.0*fleeSpeed, 10.0*fleeSpeed);
+			randomnessTarget.Y = (float)GD.RandRange(-10.0*fleeSpeed, 10.0*fleeSpeed);
+			randomness = randomness.Lerp(randomnessTarget, (float)delta*0.5f);
+			Vector3 nextPosOrig = navAgent.GetNextPathPosition();
+			Vector3 nextPos = nextPosOrig;
+			nextPos.X += randomness.X;
+			nextPos.Z += randomness.Y;
+			var myCachedTransform = enemyNodeToMove.GlobalTransform;
+			if (nextPos.DistanceTo(myCachedTransform.Origin)<nextPosOrig.DistanceTo(myCachedTransform.Origin)) {
+				nextPos = nextPosOrig;  //regret randomness
+				randomness = Vector2.Zero;
+			}
 			Vector3 dirTowards = (nextPos - enemyNodeToMove.GlobalPosition).Normalized();
 			dirTowards.Y = 0;
 			enemyNodeToMove.LookAt(enemyNodeToMove.GlobalPosition + dirTowards, Vector3.Up);
-			var myCachedTransform = enemyNodeToMove.GlobalTransform;
 			myCachedTransform.Origin = myCachedTransform.Origin.MoveToward(nextPos, (float)delta*fleeSpeed);
 			enemyNodeToMove.GlobalTransform = myCachedTransform;
 		}

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://fx0wh210hmwx"]
+
+[ext_resource type="Script" path="res://Enemy/EnemyScarer.cs" id="1_4wkeo"]
+
+[node name="VeryScaryPlace" type="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2077, 1.57702, 8.70779)
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("1_4wkeo")

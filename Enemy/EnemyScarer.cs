@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class EnemyScarer : Marker3D {
+public partial class EnemyScarer : Node3D {
 	
 	[Export]
 	public float scaryRadius = 10;

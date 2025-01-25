@@ -19,6 +19,10 @@ public partial class Player : CharacterBody3D
 	public float _jumpGravityModified = 1.5f;
 	[Export]
 	public float _fallGravityModified = 1.5f;
+	[Export]
+	public Node3D _avatarModel;
+	[Export]
+	public CollisionShape3D _capsuleCollider;
 
 	// Rotation
 	[ExportCategory("Rotation and Cam")]
@@ -43,11 +47,14 @@ public partial class Player : CharacterBody3D
 	public PlayerBubble _controlledBubble;
 
 	public PlayerBubble _collidingBubble;
+	[Export]
+	public CollisionShape3D _bubbleCollider;
 
 	// State
 	[ExportCategory("State")]
 	[Export]
 	public int _hp = 1;
+	public int _collectedCount = 0;
 
     //--------------------------------------------------
     // Overrides
@@ -210,18 +217,33 @@ public partial class Player : CharacterBody3D
 		if (bubble == null)
 			return;
 
+		// Setup bubble
 		bubble.Reparent(this);
 		bubble.Position = Vector3.Zero;
+		bubble.SetControlled(true);
+		float bubbleScale = bubble.SetGrowth(_collectedCount);
+
+		// Setup colliders 
+		_capsuleCollider.Disabled = true;
+		_bubbleCollider.Disabled = false;
+		_bubbleCollider.Scale = new Vector3(bubbleScale, bubbleScale, bubbleScale);
+		_avatarModel.Position = Vector3.Down * bubbleScale * 0.25f;
 
 		_controlledBubble = bubble;
 	}
 
 	public void LeaveBubble()
 	{
-
+		// Setup bubble
 		_controlledBubble.Reparent(GetTree().Root);
+		_controlledBubble.SetControlled(false);
 		//_controlledBubble.Position = Position;
 		_controlledBubble = null;
+
+		// Setup colliders 
+		_capsuleCollider.Disabled = false;
+		_bubbleCollider.Disabled = true;
+		_avatarModel.Position = Vector3.Zero;
 	}
 
 	private void HandleCamera()
@@ -246,9 +268,13 @@ public partial class Player : CharacterBody3D
 		// Die
 		if (_hp <= 0)
 		{
-			GD.Print("Die");
 			this.SetProcess(false);
 			GameState.GetInstance().RestartLevel();
 		}
+	}
+
+	public void CollectPoint()
+	{
+		_collectedCount++;
 	}
 }

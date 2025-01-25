@@ -4,7 +4,8 @@ using System;
 public partial class CharacterBody3d : CharacterBody3D
 {
 	public const float Speed = 5.0f;
-	public const float JumpVelocity = 4.5f;
+	public const float JumpVelocity = 6.5f;
+	public const float floatVelocity = 2.5f;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -17,9 +18,14 @@ public partial class CharacterBody3d : CharacterBody3D
 		}
 
 		// Handle Jump.
-		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+		if (Input.IsActionJustPressed("ui_accept"))
 		{
 			velocity.Y = JumpVelocity;
+		}
+
+		if (IsOnFloor())
+		{
+			velocity.Y = floatVelocity;
 		}
 
 		// Get the input direction and handle the movement/deceleration.
