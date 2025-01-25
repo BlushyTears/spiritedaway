@@ -20,7 +20,7 @@ public partial class PlayerHud : CanvasLayer
 	public override void _Process(double delta)
 	{
 		// Show collected count
-		_lblCollected.Text = 0 + "/" + 10;
+		//_lblCollected.Text = 0 + "/" + 10;
 
 		// Show bubble hint
 		if (_player.IsInBubble())

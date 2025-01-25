@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://rnscx2wflgbn"]
+[gd_scene load_steps=8 format=3 uid="uid://rnscx2wflgbn"]
 
 [ext_resource type="Script" path="res://Player/PlayerBubble.cs" id="1_1cnki"]
 [ext_resource type="Shader" path="res://resources/Shaders/Fresnel_Shader.gdshader" id="2_cbjet"]
-[ext_resource type="PackedScene" path="res://Enemy/very_scary_place.tscn" id="2_dqlyh"]
+[ext_resource type="PackedScene" uid="uid://fx0wh210hmwx" path="res://Enemy/very_scary_place.tscn" id="2_dqlyh"]
+[ext_resource type="Script" path="res://Player/OmniLight3dLogic.cs" id="4_vsgem"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ieuf6"]
 
@@ -11,13 +12,13 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_orlhg"]
 render_priority = 0
 shader = ExtResource("2_cbjet")
-shader_parameter/base_color = Color(0.958119, 0.67791, 0.311217, 1)
-shader_parameter/pulse_color = Color(0.883043, 0.650529, 7.70092e-07, 1)
+shader_parameter/base_color = Color(0.752941, 0.501961, 0.12549, 1)
+shader_parameter/pulse_color = Color(0.54902, 0.4, 0, 1)
 shader_parameter/speed = 0.1
 shader_parameter/scale = 0.1
 shader_parameter/distortion = 0.1
 shader_parameter/shield_power = 0.0
-shader_parameter/rim_power = 2.724
+shader_parameter/rim_power = 2.0
 shader_parameter/pulse_frequency = 1.024
 
 [node name="PlayerBubble" type="Node3D" node_paths=PackedStringArray("_rayCast")]
@@ -44,7 +45,7 @@ target_position = Vector3(0, -0.5, 0)
 [node name="VeryScaryPlace" parent="." instance=ExtResource("2_dqlyh")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." node_paths=PackedStringArray("thePhere")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00101519, 0.038622, 0.000251293)
 light_color = Color(1, 1, 0.827451, 1)
 light_energy = 20.0
@@ -52,6 +53,8 @@ light_size = 0.5
 shadow_enabled = true
 omni_range = 15.0
 omni_shadow_mode = 0
+script = ExtResource("4_vsgem")
+thePhere = NodePath("../Area3D/Phere")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="Area3D" to="." method="OnBodyExited"]

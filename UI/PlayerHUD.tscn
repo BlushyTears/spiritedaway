@@ -8,6 +8,7 @@ _lblCollected = NodePath("Lbl_Collected")
 _lblBubbleHint = NodePath("Lbl_BubbleHint")
 
 [node name="Lbl_Collected" type="Label" parent="."]
+visible = false
 custom_minimum_size = Vector2(0, 200)
 anchors_preset = 7
 anchor_left = 0.5

@@ -25,6 +25,7 @@ public partial class GameController : Node3D {  //TODO include this in every (co
 	public static int _timesDied = 0;
 	public static Node3D thePlayer = null;  //set by Player.cs
 	public static Node3D theBubble = null;  //set by PlayerBubble.cs
+	public static bool insideBubble = false;  //set by Player.cs
 	
 	//deprecated
 	//public static void ResetGame() {
@@ -41,7 +42,7 @@ public partial class GameController : Node3D {  //TODO include this in every (co
 	
 	public override void _Process(double delta)
 	{
-		_portalOpen = _collectedCount>=5;
+		_portalOpen = _collectedCount>=10;
 		if (thePlayer.GlobalPosition.Y<-5) {
 			DeathStateViaAnything();  //fell off the edge of the map
 		}

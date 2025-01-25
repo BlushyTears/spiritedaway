@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://fccr8ivu6hou"]
+[gd_scene load_steps=27 format=3 uid="uid://fccr8ivu6hou"]
 
 [ext_resource type="PackedScene" uid="uid://usga44akkdwq" path="res://resources/Models/Ground_C_10m.fbx" id="1_xxg0q"]
 [ext_resource type="PackedScene" uid="uid://j4r5cmx4fuxm" path="res://resources/Models/Gound_C_20x_40m.fbx" id="2_nk0pj"]
@@ -20,8 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://o1yu7ydbev14" path="res://Obstacles/GenericObstacle.tscn" id="20_smcmm"]
 [ext_resource type="PackedScene" uid="uid://cnyygeh8pw60g" path="res://resources/Models/Wall_30mOut.fbx" id="21_01gbt"]
 [ext_resource type="PackedScene" uid="uid://b1q6j43baqlwm" path="res://stuff.tscn" id="21_jc27l"]
-[ext_resource type="PackedScene" path="res://Player/game_controller.tscn" id="22_ndojh"]
+[ext_resource type="PackedScene" uid="uid://davj0ik2iqn4u" path="res://Player/game_controller.tscn" id="22_ndojh"]
 [ext_resource type="PackedScene" uid="uid://1inio1igelik" path="res://resources/Models/TerrainBlocker.fbx" id="22_ym0gy"]
+[ext_resource type="PackedScene" uid="uid://cxgb2rwmti5r2" path="res://GUI/UserInterface.tscn" id="23_vtwu0"]
 
 [sub_resource type="Environment" id="Environment_qqifr"]
 background_mode = 1
@@ -1154,3 +1155,5 @@ transform = Transform3D(-0.102629, 0, 0.904062, 0, 2, 0, -0.867624, 0, -0.106939
 
 [node name="TerrainBlocker" parent="NavigationRegion3D" instance=ExtResource("22_ym0gy")]
 transform = Transform3D(4.01, 0, 0, 0, 4.01, 0, 0, 0, 4.01, -14.44, 2.82, -7.634)
+
+[node name="Control" parent="." instance=ExtResource("23_vtwu0")]

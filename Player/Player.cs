@@ -94,6 +94,7 @@ public partial class Player : CharacterBody3D
 		// Enter bubble
 		if (Input.IsActionJustPressed("pl_enterBubble"))
 		{
+			
 			if (_controlledBubble == null)
 				ControlBubble(_collidingBubble);
 			else
@@ -105,6 +106,9 @@ public partial class Player : CharacterBody3D
 		{
 			_outBubbleTime += (float)delta;
 			_avatarModel.Position = _avatarModel.Position.Lerp(Vector3.Zero, (float)delta * 10);
+			GameController.insideBubble = false;
+		} else {
+			GameController.insideBubble = true;  //memo: used by OmniLight3dLogic.cs
 		}
 
 		if (_outBubbleTime > _outBubbleTimeWarning && !_outWarningPlayed) // Play warning sound
@@ -118,6 +122,7 @@ public partial class Player : CharacterBody3D
 
 		if (_outBubbleTime >= _outBubbleTimeDead)
 			SubtractHP(_hp);
+			
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -318,13 +323,14 @@ public partial class Player : CharacterBody3D
 	public void SubtractHP(int dmg)
 	{
 		_hp -= dmg;
-		GD.Print(_hp);
+		
 
 		// Die
 		if (_hp <= 0)
 		{
-			this.SetProcess(false);
-			GameState.GetInstance().RestartLevel();
+			
+			_outBubbleTime = 0;
+			GameController.DeathStateViaAnything();
 		}
 	}
 
