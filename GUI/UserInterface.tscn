@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxgb2rwmti5r2"]
+[gd_scene load_steps=3 format=3 uid="uid://cxgb2rwmti5r2"]
 
 [ext_resource type="Script" path="res://GUI/SpiritsCollectedUpdater.cs" id="1_0q33b"]
+[ext_resource type="Script" path="res://GUI/InformativeText.cs" id="1_ue7ta"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -17,6 +18,15 @@ offset_top = 25.0
 offset_right = 154.0
 offset_bottom = 48.0
 text = "Spirits Collected:"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 48.0
+offset_right = 446.0
+offset_bottom = 71.0
+text = "Find the exit..."
+script = ExtResource("1_ue7ta")
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
