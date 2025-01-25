@@ -25,7 +25,11 @@ project/assembly_name="test"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/material_viewer/plugin.cfg")
+enabled=PackedStringArray("res://addons/material_viewer/plugin.cfg", "res://addons/wigglebone/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 
