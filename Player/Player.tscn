@@ -1,16 +1,36 @@
-[gd_scene load_steps=9 format=3 uid="uid://lrhm5qe4pd44"]
+[gd_scene load_steps=11 format=3 uid="uid://lrhm5qe4pd44"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_3xaqb"]
 [ext_resource type="AudioStream" uid="uid://cu0hcbt1xgt1r" path="res://Enter exit bubble.wav" id="2_8okgy"]
 [ext_resource type="PackedScene" uid="uid://b0aoqykga2xhi" path="res://UI/PlayerHUD.tscn" id="2_wkbgr"]
 [ext_resource type="AudioStream" uid="uid://cftopasm0lxu3" path="res://Stress white noise.wav" id="3_cwj3s"]
 [ext_resource type="PackedScene" uid="uid://q8ocm1k6rer" path="res://resources/Props/main_blob_2.1.fbx" id="5_lm1x2"]
+[ext_resource type="Shader" path="res://resources/Shaders/VerteAnimation.gdshader" id="6_ivpak"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6soud"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4w3hv"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h1hqr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w412i"]
+render_priority = 0
+shader = ExtResource("6_ivpak")
+shader_parameter/albedo = Color(0, 0.643137, 1, 1)
+shader_parameter/roughness = null
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = null
+shader_parameter/metallic = null
+shader_parameter/normal_scale = 1.0
+shader_parameter/enable_wind = true
+shader_parameter/wind_type = 100
+shader_parameter/wind_strength = 0.9
+shader_parameter/wind_speed = 1.0
+shader_parameter/wind_frequency = 2.0
+shader_parameter/wind_direction = Vector2(1, 0)
+shader_parameter/enable_fade = false
+shader_parameter/fade_start_distance = 50.0
+shader_parameter/fade_length = 20.0
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_avatarModel", "_capsuleCollider", "_cameraHolder", "_camera", "_cameraRayCast", "_bubbleCollider", "_audioPlayer")]
 script = ExtResource("1_3xaqb")
@@ -56,19 +76,28 @@ _player = NodePath("..")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00175733, -0.742018, 0.000434998)
+light_color = Color(0.014136, 0.584104, 0.999987, 1)
+light_energy = 15.0
+light_size = 0.183
+omni_range = 1.5
+omni_shadow_mode = 0
+
 [node name="main_blob_2_1" parent="." instance=ExtResource("5_lm1x2")]
 transform = Transform3D(1.73104, 0, 0, 0, 1.73104, 0, 0, 0, 1.73104, 0, 0, 0)
 
 [node name="pSphere64" parent="main_blob_2_1" index="0"]
-cast_shadow = 2
+cast_shadow = 0
 gi_mode = 0
 
 [node name="pSphere65" parent="main_blob_2_1" index="1"]
-cast_shadow = 2
+cast_shadow = 0
 gi_mode = 0
 
 [node name="pSphere66" parent="main_blob_2_1" index="2"]
-cast_shadow = 2
+material_overlay = SubResource("ShaderMaterial_w412i")
+cast_shadow = 0
 gi_mode = 0
 
 [editable path="main_blob_2_1"]

@@ -11,14 +11,14 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_orlhg"]
 render_priority = 0
 shader = ExtResource("2_cbjet")
-shader_parameter/base_color = Color(0, 0.5, 1, 1)
-shader_parameter/pulse_color = Color(0.5, 0.7, 1, 1)
+shader_parameter/base_color = Color(0.958119, 0.67791, 0.311217, 1)
+shader_parameter/pulse_color = Color(0.883043, 0.650529, 7.70092e-07, 1)
 shader_parameter/speed = 0.1
 shader_parameter/scale = 0.1
 shader_parameter/distortion = 0.1
-shader_parameter/shield_power = 0.089
+shader_parameter/shield_power = 0.0
 shader_parameter/rim_power = 2.724
-shader_parameter/pulse_frequency = 0.242
+shader_parameter/pulse_frequency = 1.024
 
 [node name="PlayerBubble" type="Node3D" node_paths=PackedStringArray("_rayCast")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
@@ -47,10 +47,11 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00101519, 0.038622, 0.000251293)
 light_color = Color(1, 1, 0.827451, 1)
-light_energy = 10.0
+light_energy = 20.0
+light_size = 0.5
 shadow_enabled = true
 omni_range = 15.0
-omni_attenuation = 0.247
+omni_shadow_mode = 0
 
 [connection signal="body_entered" from="Area3D" to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="Area3D" to="." method="OnBodyExited"]

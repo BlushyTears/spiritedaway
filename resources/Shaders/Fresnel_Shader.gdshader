@@ -57,8 +57,8 @@ void fragment() {
     ALBEDO = final_color.rgb;
     EMISSION = final_color.rgb * shield_intensity * 2.0;
     ALPHA = clamp(shield_intensity * 1.5, 0.0, 1.0);
-    ROUGHNESS = 0.1;
-    METALLIC = 0.8;
+    ROUGHNESS = 0.0;
+    METALLIC = 0.0;
     
     vec3 normal_distortion = vec3(noise_val, noise_val, 1.0) * 0.1;
     NORMAL_MAP = normalize(mix(NORMAL, normal_distortion, 0.5));
