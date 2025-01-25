@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://ceyyg147x0f2h"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bq3rndt3xcarj"]
 
 [ext_resource type="Shader" path="res://resources/Shaders/Triplanar_Shader_DetailBlend.gdshader" id="1_gn03b"]
 [ext_resource type="Texture2D" uid="uid://t8q0tobukjqa" path="res://resources/Textures/Quarry Slate Detail Rock Stained 01_xbknedb/Albedo_2K__xbknedb.jpg" id="2_vcrwc"]

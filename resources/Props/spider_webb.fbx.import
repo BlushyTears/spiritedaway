@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://usga44akkdwq"
-path="res://.godot/imported/Ground_C_10m.fbx-0bc9156a74ade55f4082e0f054d7b841.scn"
+uid="uid://n4kwcr3208p7"
+path="res://.godot/imported/spider_webb.fbx-3e0ebb83189dc54de17f2c4c841cf78f.scn"
 
 [deps]
 
-source_file="res://resources/Models/Ground_C_10m.fbx"
-dest_files=["res://.godot/imported/Ground_C_10m.fbx-0bc9156a74ade55f4082e0f054d7b841.scn"]
+source_file="res://resources/Props/spider_webb.fbx"
+dest_files=["res://.godot/imported/spider_webb.fbx-3e0ebb83189dc54de17f2c4c841cf78f.scn"]
 
 [params]
 
@@ -31,18 +31,7 @@ animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"M_Cave": {
-"use_external/enabled": true,
-"use_external/path": "res://resources/Materials/M_Cave.tres"
-},
-"M_Cave_Ground": {
-"use_external/enabled": true,
-"use_external/path": "res://resources/Materials/M_Cave_Ground.tres"
-}
-}
-}
+_subresources={}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

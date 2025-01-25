@@ -36,6 +36,10 @@ _subresources={
 "M_Cave": {
 "use_external/enabled": true,
 "use_external/path": "res://resources/Materials/M_Cave.tres"
+},
+"M_Cave_Ground": {
+"use_external/enabled": true,
+"use_external/path": "res://resources/Materials/M_Cave_Ground.tres"
 }
 }
 }

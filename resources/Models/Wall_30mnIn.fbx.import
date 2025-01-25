@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://usga44akkdwq"
-path="res://.godot/imported/Ground_C_10m.fbx-0bc9156a74ade55f4082e0f054d7b841.scn"
+uid="uid://byhf70bnvkno6"
+path="res://.godot/imported/Wall_30mnIn.fbx-3ea4c01b6a9fca902ec924ad02083ece.scn"
 
 [deps]
 
-source_file="res://resources/Models/Ground_C_10m.fbx"
-dest_files=["res://.godot/imported/Ground_C_10m.fbx-0bc9156a74ade55f4082e0f054d7b841.scn"]
+source_file="res://resources/Models/Wall_30mnIn.fbx"
+dest_files=["res://.godot/imported/Wall_30mnIn.fbx-3ea4c01b6a9fca902ec924ad02083ece.scn"]
 
 [params]
 
@@ -33,13 +33,9 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"M_Cave": {
+"M_Cave_Wall": {
 "use_external/enabled": true,
-"use_external/path": "res://resources/Materials/M_Cave.tres"
-},
-"M_Cave_Ground": {
-"use_external/enabled": true,
-"use_external/path": "res://resources/Materials/M_Cave_Ground.tres"
+"use_external/path": "res://resources/Materials/M_Cave_Wall.tres"
 }
 }
 }
