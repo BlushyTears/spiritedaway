@@ -7,3 +7,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2077, 1.57702, 8.70779)
 
 [node name="Node3D" type="Node3D" parent="."]
 script = ExtResource("1_4wkeo")
+scaryRadius = 20.0

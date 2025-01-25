@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://tqxserg40xrn"]
+[gd_scene load_steps=11 format=3 uid="uid://di1t5t6ol4ouc"]
 
+[ext_resource type="PackedScene" path="res://Player/PlayerBubble.tscn" id="2_msgmq"]
 [ext_resource type="PackedScene" uid="uid://caofxh6w7jsmb" path="res://resources/Models/TerrainBase.fbx" id="2_ug8ok"]
 [ext_resource type="PackedScene" uid="uid://usga44akkdwq" path="res://resources/Models/Ground_C_10m.fbx" id="3_wd632"]
+[ext_resource type="PackedScene" uid="uid://lrhm5qe4pd44" path="res://Player/Player.tscn" id="3_wxfd3"]
 [ext_resource type="PackedScene" uid="uid://j4r5cmx4fuxm" path="res://resources/Models/Gound_C_20x_40m.fbx" id="4_512wv"]
-[ext_resource type="Material" uid="uid://exd371p467d8" path="res://resources/Materials/M_Glow_White.tres" id="4_1001i"]
 [ext_resource type="PackedScene" uid="uid://fx0wh210hmwx" path="res://Enemy/very_scary_place.tscn" id="6_dc2u7"]
 [ext_resource type="PackedScene" uid="uid://bs8205wr8uftb" path="res://Enemy/very_scared_spirit.tscn" id="7_h1r2h"]
 
@@ -38,22 +39,6 @@ polygons = [PackedInt32Array(14, 4, 3), PackedInt32Array(4, 15, 0), PackedInt32A
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00574684, 0, 0.0313234)
 
-[node name="CSGSphere3D_Light (player representation)" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.79345, 2.43282)
-material_override = ExtResource("4_1001i")
-cast_shadow = 0
-
-[node name="OmniLight3D" type="OmniLight3D" parent="CSGSphere3D_Light (player representation)"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00406075, 0.154488, 0.00100517)
-light_color = Color(1, 1, 0.827451, 1)
-light_energy = 10.0
-shadow_enabled = true
-omni_range = 15.0
-omni_attenuation = 0.247
-
-[node name="VeryScaryPlace" parent="." instance=ExtResource("6_dc2u7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.793, 2.433)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6uwbg")
 compositor = SubResource("Compositor_cdn73")
@@ -76,9 +61,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.379773, 3.86536, -16.8101)
 [node name="Gound_C_20x_40m2" parent="NavigationRegion3D" instance=ExtResource("4_512wv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48893, 3.86536, 18.8442)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.983723, 0.158512, -0.0846452, 0, 0.471044, 0.882109, 0.179697, -0.86775, 0.463377, 0.077605, 14.4426, 9.53107)
-
 [node name="VeryScaredSpirit1" parent="." instance=ExtResource("7_h1r2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02326, 2.7893, -3.1524)
 
@@ -96,3 +78,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.764, 2.7893, 7.04066)
 
 [node name="VeryScaredSpirit3" parent="." instance=ExtResource("7_h1r2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.967, 2.7893, -1.64455)
+
+[node name="PlayerBubble" parent="." instance=ExtResource("2_msgmq")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 6.99425, 4.40266, 5.96868)
+
+[node name="VeryScaryPlace" parent="PlayerBubble" instance=ExtResource("6_dc2u7")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="PlayerBubble"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00101519, 0.038622, 0.000251293)
+light_color = Color(1, 1, 0.827451, 1)
+light_energy = 10.0
+shadow_enabled = true
+omni_range = 15.0
+omni_attenuation = 0.247
+
+[node name="Player" parent="." instance=ExtResource("3_wxfd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9943, 3.66769, 3.96868)

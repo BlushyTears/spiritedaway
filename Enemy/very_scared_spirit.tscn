@@ -8,5 +8,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.099, 2.7893, 7.04066)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 script = ExtResource("1_86txc")
+distanceToFlee = 30.0
+fleeSpeed = 10.0
 
 [node name="SpiritAppearance" parent="." instance=ExtResource("2_vtvq3")]
