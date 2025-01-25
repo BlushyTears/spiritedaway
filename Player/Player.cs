@@ -77,16 +77,17 @@ public partial class Player : CharacterBody3D
 	public AudioStream _soundOutWarning;
 	bool _outWarningPlayed = false;
 
-    //--------------------------------------------------
-    // Overrides
-    //--------------------------------------------------
+	//--------------------------------------------------
+	// Overrides
+	//--------------------------------------------------
 
-    public override void _Ready()
-    {
-        base._Ready();
-    }
+	public override void _Ready()
+	{
+		base._Ready();
+		GameController.theBubble = this;
+	}
 
-    public override void _Process(double delta)
+	public override void _Process(double delta)
 	{
 		base._Process(delta);
 
