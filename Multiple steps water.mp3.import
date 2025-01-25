@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dvb6s4vhvnhvb"
+path="res://.godot/imported/Multiple steps water.mp3-0db938620bbaa87a6e6824d8d2878290.mp3str"
+
+[deps]
+
+source_file="res://Multiple steps water.mp3"
+dest_files=["res://.godot/imported/Multiple steps water.mp3-0db938620bbaa87a6e6824d8d2878290.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

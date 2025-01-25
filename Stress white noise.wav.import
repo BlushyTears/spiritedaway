@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cftopasm0lxu3"
+path="res://.godot/imported/Stress white noise.wav-94e887756b17b5d5a09c99093d95180c.sample"
+
+[deps]
+
+source_file="res://Stress white noise.wav"
+dest_files=["res://.godot/imported/Stress white noise.wav-94e887756b17b5d5a09c99093d95180c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

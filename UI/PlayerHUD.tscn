@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0aoqykga2xhi"]
+
+[ext_resource type="Script" path="res://UI/PlayerHud.cs" id="1_kygfo"]
+
+[node name="PlayerHud" type="CanvasLayer" node_paths=PackedStringArray("_lblCollected", "_lblBubbleHint")]
+script = ExtResource("1_kygfo")
+_lblCollected = NodePath("Lbl_Collected")
+_lblBubbleHint = NodePath("Lbl_BubbleHint")
+
+[node name="Lbl_Collected" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 200)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "0 / 10"
+horizontal_alignment = 1
+
+[node name="Lbl_BubbleHint" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 140)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -152.0
+offset_right = 42.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "E"
+horizontal_alignment = 1

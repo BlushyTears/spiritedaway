@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ca7qqlw0kg636"
+path="res://.godot/imported/Single step dirt.wav-88b746ac068c0bd596026890fb5f1017.sample"
+
+[deps]
+
+source_file="res://Single step dirt.wav"
+dest_files=["res://.godot/imported/Single step dirt.wav-88b746ac068c0bd596026890fb5f1017.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

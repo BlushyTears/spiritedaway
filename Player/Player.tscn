@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://lrhm5qe4pd44"]
+[gd_scene load_steps=8 format=3 uid="uid://lrhm5qe4pd44"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_3xaqb"]
+[ext_resource type="AudioStream" uid="uid://cu0hcbt1xgt1r" path="res://Enter exit bubble.wav" id="2_8okgy"]
+[ext_resource type="PackedScene" uid="uid://b0aoqykga2xhi" path="res://UI/PlayerHUD.tscn" id="2_wkbgr"]
+[ext_resource type="AudioStream" uid="uid://cftopasm0lxu3" path="res://Stress white noise.wav" id="3_cwj3s"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6soud"]
 
@@ -8,7 +11,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h1hqr"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_avatarModel", "_capsuleCollider", "_cameraHolder", "_camera", "_cameraRayCast", "_bubbleCollider")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_avatarModel", "_capsuleCollider", "_cameraHolder", "_camera", "_cameraRayCast", "_bubbleCollider", "_audioPlayer")]
 script = ExtResource("1_3xaqb")
 _bubbleSpeed = 8.0
 _outSpeed = 4.0
@@ -23,6 +26,10 @@ _cameraHolder = NodePath("CameraHolder")
 _camera = NodePath("CameraHolder/Camera3D")
 _cameraRayCast = NodePath("CameraHolder/RayCast3D")
 _bubbleCollider = NodePath("BubbleShapeCollider")
+_audioPlayer = NodePath("AudioStreamPlayer3D")
+_soundEnterBubble = ExtResource("2_8okgy")
+_soundLeaveBubble = ExtResource("2_8okgy")
+_soundOutWarning = ExtResource("3_cwj3s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_6soud")
@@ -40,3 +47,8 @@ target_position = Vector3(0, 4, 4)
 
 [node name="BubbleShapeCollider" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_h1hqr")
+
+[node name="PlayerHud" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("2_wkbgr")]
+_player = NodePath("..")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]

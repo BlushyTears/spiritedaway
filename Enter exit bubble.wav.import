@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cu0hcbt1xgt1r"
+path="res://.godot/imported/Enter exit bubble.wav-000e4749833f29b22e013bcbffbfa4ee.sample"
+
+[deps]
+
+source_file="res://Enter exit bubble.wav"
+dest_files=["res://.godot/imported/Enter exit bubble.wav-000e4749833f29b22e013bcbffbfa4ee.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

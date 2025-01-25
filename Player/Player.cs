@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.IO;
 
 public partial class Player : CharacterBody3D
 {
@@ -54,7 +55,7 @@ public partial class Player : CharacterBody3D
 	[ExportCategory("State")]
 	[Export]
 	public int _hp = 1;
-	public int _collectedCount = 0;
+	public int _collectedCount = 10;
 
 	// Outside of bubble settings
 	[ExportCategory("Out of bubble")]
@@ -63,6 +64,18 @@ public partial class Player : CharacterBody3D
 	[Export]
 	public float _outBubbleTimeDead = 20;
 	public float _outBubbleTime = 0;
+
+	// Audio
+	[ExportCategory("Audio")]
+	[Export]
+	public AudioStreamPlayer3D _audioPlayer;
+	[Export]
+	public AudioStream _soundEnterBubble;
+	[Export]
+	public AudioStream _soundLeaveBubble;
+	[Export]
+	public AudioStream _soundOutWarning;
+	bool _outWarningPlayed = false;
 
     //--------------------------------------------------
     // Overrides
@@ -88,11 +101,17 @@ public partial class Player : CharacterBody3D
 
 		// Process time out of bubble
 		if (_controlledBubble == null)
+		{
 			_outBubbleTime += (float)delta;
+			_avatarModel.Position = _avatarModel.Position.Lerp(Vector3.Zero, (float)delta * 10);
+		}
 
-		GD.Print(_outBubbleTime);
-
-		//if (_outBubbleTime < _outBubbleTimeWarning) // Play light warning sound
+		if (_outBubbleTime > _outBubbleTimeWarning && !_outWarningPlayed) // Play warning sound
+		{
+			_outWarningPlayed = true;
+			_audioPlayer.Stream = _soundOutWarning;
+			_audioPlayer.Play();
+		}
 
 		//if (_outBubbleTime >= _outBubbleTimeWarning && _outBubbleTime < _outBubbleTimeWarning)
 
@@ -102,8 +121,6 @@ public partial class Player : CharacterBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		ControlBubble(_controlledBubble);
-
 		Vector3 velocity = Velocity;
 
 		// Add the gravity.
@@ -251,9 +268,14 @@ public partial class Player : CharacterBody3D
 		_avatarModel.Position = Vector3.Down * bubbleScale * 0.25f;
 
 		_controlledBubble = bubble;
+		_outWarningPlayed = false;
 
 		// Timer
 		_outBubbleTime = 0;
+
+		// Audio
+		_audioPlayer.Stream = _soundEnterBubble;
+		_audioPlayer.Play();
 	}
 
 	public void LeaveBubble()
@@ -267,7 +289,15 @@ public partial class Player : CharacterBody3D
 		// Setup colliders 
 		_capsuleCollider.Disabled = false;
 		_bubbleCollider.Disabled = true;
-		_avatarModel.Position = Vector3.Zero;
+
+		// Audio
+		_audioPlayer.Stream = _soundLeaveBubble;
+		_audioPlayer.Play();
+	}
+
+	public bool IsInBubble()
+	{
+		return _controlledBubble != null;
 	}
 
 	private void HandleCamera()
