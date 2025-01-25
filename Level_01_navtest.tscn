@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://di1t5t6ol4ouc"]
+[gd_scene load_steps=12 format=3 uid="uid://di1t5t6ol4ouc"]
 
-[ext_resource type="PackedScene" path="res://Player/PlayerBubble.tscn" id="2_msgmq"]
+[ext_resource type="PackedScene" uid="uid://rnscx2wflgbn" path="res://Player/PlayerBubble.tscn" id="2_msgmq"]
 [ext_resource type="PackedScene" uid="uid://caofxh6w7jsmb" path="res://resources/Models/TerrainBase.fbx" id="2_ug8ok"]
 [ext_resource type="PackedScene" uid="uid://usga44akkdwq" path="res://resources/Models/Ground_C_10m.fbx" id="3_wd632"]
 [ext_resource type="PackedScene" uid="uid://lrhm5qe4pd44" path="res://Player/Player.tscn" id="3_wxfd3"]
 [ext_resource type="PackedScene" uid="uid://j4r5cmx4fuxm" path="res://resources/Models/Gound_C_20x_40m.fbx" id="4_512wv"]
 [ext_resource type="PackedScene" uid="uid://fx0wh210hmwx" path="res://Enemy/very_scary_place.tscn" id="6_dc2u7"]
 [ext_resource type="PackedScene" uid="uid://bs8205wr8uftb" path="res://Enemy/very_scared_spirit.tscn" id="7_h1r2h"]
+[ext_resource type="PackedScene" uid="uid://davj0ik2iqn4u" path="res://Player/game_controller.tscn" id="8_d767s"]
 
 [sub_resource type="Environment" id="Environment_6uwbg"]
 background_mode = 1
@@ -95,3 +96,7 @@ omni_attenuation = 0.247
 
 [node name="Player" parent="." instance=ExtResource("3_wxfd3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9943, 3.66769, 3.96868)
+
+[node name="SpiritCollected" type="Node3D" parent="."]
+
+[node name="GameController" parent="." instance=ExtResource("8_d767s")]

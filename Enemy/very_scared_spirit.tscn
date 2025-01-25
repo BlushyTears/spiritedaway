@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs8205wr8uftb"]
+[gd_scene load_steps=4 format=3 uid="uid://bs8205wr8uftb"]
 
 [ext_resource type="Script" path="res://Enemy/EnemyMover.cs" id="1_86txc"]
 [ext_resource type="PackedScene" uid="uid://c5qkfrav2begk" path="res://Enemy/spirit_appearance.tscn" id="2_vtvq3"]
+[ext_resource type="Script" path="res://Enemy/PlayerCollideDetector.cs" id="3_603nc"]
 
 [node name="VeryScaredSpirit" type="Marker3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.099, 2.7893, 7.04066)
@@ -12,3 +13,6 @@ distanceToFlee = 30.0
 fleeSpeed = 10.0
 
 [node name="SpiritAppearance" parent="." instance=ExtResource("2_vtvq3")]
+
+[node name="PlayerCollideDetector" type="Node3D" parent="."]
+script = ExtResource("3_603nc")
