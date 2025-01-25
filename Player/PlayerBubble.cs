@@ -41,7 +41,7 @@ public partial class PlayerBubble : Node3D
     private void OnBodyEntered(Node3D body)
 	{
 		// Is player - setup colliding bubble
-		Player player = (Player)body;
+		Player player = body as Player;
 		if (player != null)
 		{
 			player.SetCollidingBubble(this);
@@ -51,7 +51,7 @@ public partial class PlayerBubble : Node3D
 	private void OnBodyExited(Node3D body)
 	{
 		// Is player - remove colliding bubble
-		Player player = (Player)body;
+		Player player = body as Player;
 		if (player != null)
 		{
 			player.SetCollidingBubble(null);

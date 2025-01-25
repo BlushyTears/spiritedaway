@@ -168,7 +168,7 @@ public partial class Player : CharacterBody3D
 	public override void _Input(InputEvent @event)
 	{
 		// Handle mouse rotation
-		InputEventMouseMotion mouseEvent = (InputEventMouseMotion)@event;
+		InputEventMouseMotion mouseEvent = @event as InputEventMouseMotion;
 
 		if (mouseEvent != null)
 		{
