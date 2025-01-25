@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs8205wr8uftb"]
+
+[ext_resource type="Script" path="res://Enemy/EnemyMover.cs" id="1_86txc"]
+[ext_resource type="PackedScene" uid="uid://c5qkfrav2begk" path="res://Enemy/spirit_appearance.tscn" id="2_vtvq3"]
+
+[node name="VeryScaredSpirit" type="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.099, 2.7893, 7.04066)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+script = ExtResource("1_86txc")
+
+[node name="SpiritAppearance" parent="." instance=ExtResource("2_vtvq3")]
