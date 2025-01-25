@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfjrvu35ypljc"]
+[gd_scene load_steps=8 format=3 uid="uid://idkcguyirtk6"]
 
 [ext_resource type="PackedScene" uid="uid://lrhm5qe4pd44" path="res://Player/Player.tscn" id="1_nbu68"]
 [ext_resource type="PackedScene" uid="uid://rnscx2wflgbn" path="res://Player/PlayerBubble.tscn" id="2_nyprr"]
@@ -53,4 +53,3 @@ shape = SubResource("BoxShape3D_meqnc")
 
 [node name="Obstacle" parent="." instance=ExtResource("3_2p4fc")]
 transform = Transform3D(1.97559, 0, 0, 0, 1.97559, 0, 0, 0, 1.97559, 6.43541, -0.659846, 3.43891)
-_changeMovement = true

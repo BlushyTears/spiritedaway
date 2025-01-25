@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://di1t5t6ol4ouc"]
+[gd_scene load_steps=10 format=3 uid="uid://tqxserg40xrn"]
 
 [ext_resource type="PackedScene" uid="uid://caofxh6w7jsmb" path="res://resources/Models/TerrainBase.fbx" id="2_ug8ok"]
 [ext_resource type="PackedScene" uid="uid://usga44akkdwq" path="res://resources/Models/Ground_C_10m.fbx" id="3_wd632"]
