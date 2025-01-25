@@ -56,6 +56,14 @@ public partial class Player : CharacterBody3D
 	public int _hp = 1;
 	public int _collectedCount = 0;
 
+	// Outside of bubble settings
+	[ExportCategory("Out of bubble")]
+	[Export]
+	public float _outBubbleTimeWarning = 5;
+	[Export]
+	public float _outBubbleTimeDead = 20;
+	public float _outBubbleTime = 0;
+
     //--------------------------------------------------
     // Overrides
     //--------------------------------------------------
@@ -77,6 +85,19 @@ public partial class Player : CharacterBody3D
 			else
 				LeaveBubble();
 		}
+
+		// Process time out of bubble
+		if (_controlledBubble == null)
+			_outBubbleTime += (float)delta;
+
+		GD.Print(_outBubbleTime);
+
+		//if (_outBubbleTime < _outBubbleTimeWarning) // Play light warning sound
+
+		//if (_outBubbleTime >= _outBubbleTimeWarning && _outBubbleTime < _outBubbleTimeWarning)
+
+		if (_outBubbleTime >= _outBubbleTimeDead)
+			SubtractHP(_hp);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -230,6 +251,9 @@ public partial class Player : CharacterBody3D
 		_avatarModel.Position = Vector3.Down * bubbleScale * 0.25f;
 
 		_controlledBubble = bubble;
+
+		// Timer
+		_outBubbleTime = 0;
 	}
 
 	public void LeaveBubble()
