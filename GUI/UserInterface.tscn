@@ -28,7 +28,7 @@ offset_bottom = 71.0
 text = "Find the exit..."
 script = ExtResource("1_ue7ta")
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2-collected" type="Label" parent="."]
 layout_mode = 0
 offset_left = 154.0
 offset_top = 25.0
@@ -37,3 +37,24 @@ offset_bottom = 48.0
 text = "0"
 horizontal_alignment = 1
 script = ExtResource("1_0q33b")
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 71.0
+offset_right = 154.0
+offset_bottom = 94.0
+text = "Times Died:"
+script = ExtResource("1_0q33b")
+type = "deathlabel"
+
+[node name="Label5-deathcount" type="Label" parent="."]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 71.0
+offset_right = 188.0
+offset_bottom = 94.0
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("1_0q33b")
+type = "deathcnt"
