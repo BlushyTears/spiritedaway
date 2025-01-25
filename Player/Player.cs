@@ -84,7 +84,7 @@ public partial class Player : CharacterBody3D
 	public override void _Ready()
 	{
 		base._Ready();
-		GameController.theBubble = this;
+		GameController.thePlayer = this;
 	}
 
 	public override void _Process(double delta)

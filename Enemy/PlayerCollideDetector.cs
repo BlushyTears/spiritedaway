@@ -8,15 +8,15 @@ public partial class PlayerCollideDetector : Node3D
 	
 	private PackedScene spiritCollectedAnimation = GD.Load<PackedScene>("res://Enemy/spirit_appearance_collected.tscn");
 	
-	private Node3D thePlayer;
+	//private Node3D thePlayer;
 	
 	public override void _Ready() {
-		thePlayer = GetTree().CurrentScene.GetNode<Node3D>("Player");
+		//thePlayer = GetTree().CurrentScene.GetNode<Node3D>("Player");
 	}
 
 	public override void _Process(double delta)
 	{
-		float dist = GlobalTransform.Origin.DistanceTo(thePlayer.GlobalTransform.Origin);
+		float dist = GlobalTransform.Origin.DistanceTo(GameController.thePlayer.GlobalTransform.Origin);
 		if (dist<1 && type=="spirit") {
 			Node3D ani = spiritCollectedAnimation.Instantiate<Node3D>();
 			ani.GlobalPosition = GlobalTransform.Origin;

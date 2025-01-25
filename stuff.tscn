@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1q6j43baqlwm"]
+
+[ext_resource type="PackedScene" uid="uid://lrhm5qe4pd44" path="res://Player/Player.tscn" id="1_mec3x"]
+[ext_resource type="PackedScene" uid="uid://rnscx2wflgbn" path="res://Player/PlayerBubble.tscn" id="2_bkcdh"]
+[ext_resource type="PackedScene" uid="uid://bs8205wr8uftb" path="res://Enemy/very_scared_spirit.tscn" id="3_j5i6y"]
+
+[node name="Stuff" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_mec3x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.13991, 0)
+
+[node name="PlayerBubble" parent="." instance=ExtResource("2_bkcdh")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 6.06314, 3.09614)
+
+[node name="VeryScaredSpirit" parent="." instance=ExtResource("3_j5i6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.08289, -4.30975)

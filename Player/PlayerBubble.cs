@@ -23,6 +23,7 @@ public partial class PlayerBubble : Node3D
 		base._Ready();
 		_originalScale = Scale.X;
 		SetControlled(false);
+		GameController.theBubble = this;
 	}
 
 	public override void _PhysicsProcess(double delta)

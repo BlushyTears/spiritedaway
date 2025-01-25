@@ -10,7 +10,7 @@ public partial class GameController : Node3D {  //TODO include this in every (co
 			GD.Print("Warning: Several GameControllers!");
 		}
 		singleton = this;
-		Node3D player = singleton.GetTree().CurrentScene.GetNode<Node3D>("Player");
+		Node3D player = thePlayer;
 		if (player==null) {
 			AppendCheckpoint(Vector3.Up*6);  //the the middle of the map if the player can't be found for some reason
 		} else {
@@ -23,6 +23,7 @@ public partial class GameController : Node3D {  //TODO include this in every (co
 	public static bool _victory = false;
 	public static bool _portalOpen = false;
 	public static int _timesDied = 0;
+	public static Node3D thePlayer = null;  //set by Player.cs
 	public static Node3D theBubble = null;  //set by PlayerBubble.cs
 	
 	//deprecated
@@ -41,19 +42,16 @@ public partial class GameController : Node3D {  //TODO include this in every (co
 	public override void _Process(double delta)
 	{
 		_portalOpen = _collectedCount>=5;
-		if (singleton.GetTree().CurrentScene.GetNode<Node3D>("Player").GlobalPosition.Y<-5) {
+		if (thePlayer.GlobalPosition.Y<-5) {
 			DeathStateViaAnything();  //fell off the edge of the map
 		}
 	}
 	
 	public static void DeathStateViaAnything() {  //hit a spike, or fell off the map, or suffocated on darkness
-		Node3D thePlayer = singleton.GetTree().CurrentScene.GetNode<Node3D>("Player");
 		Vector3 checkpoint = GetClosestActivatedCheckpoint(thePlayer.GlobalPosition);
 		thePlayer.GlobalPosition = checkpoint;
 		theBubble.GlobalPosition = checkpoint;
-		
 		_timesDied++;
-		GD.Print(_timesDied);
 	}
 	
 	private static Vector3 GetClosestActivatedCheckpoint(Vector3 currentPlayerPos) {
