@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://lrhm5qe4pd44"]
+[gd_scene load_steps=9 format=3 uid="uid://lrhm5qe4pd44"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_3xaqb"]
 [ext_resource type="AudioStream" uid="uid://cu0hcbt1xgt1r" path="res://Enter exit bubble.wav" id="2_8okgy"]
 [ext_resource type="PackedScene" uid="uid://b0aoqykga2xhi" path="res://UI/PlayerHUD.tscn" id="2_wkbgr"]
 [ext_resource type="AudioStream" uid="uid://cftopasm0lxu3" path="res://Stress white noise.wav" id="3_cwj3s"]
+[ext_resource type="PackedScene" uid="uid://q8ocm1k6rer" path="res://resources/Props/main_blob_2.1.fbx" id="5_lm1x2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6soud"]
 
@@ -32,6 +33,7 @@ _soundLeaveBubble = ExtResource("2_8okgy")
 _soundOutWarning = ExtResource("3_cwj3s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_6soud")
 
@@ -53,3 +55,20 @@ shape = SubResource("SphereShape3D_h1hqr")
 _player = NodePath("..")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="main_blob_2_1" parent="." instance=ExtResource("5_lm1x2")]
+transform = Transform3D(1.73104, 0, 0, 0, 1.73104, 0, 0, 0, 1.73104, 0, 0, 0)
+
+[node name="pSphere64" parent="main_blob_2_1" index="0"]
+cast_shadow = 2
+gi_mode = 0
+
+[node name="pSphere65" parent="main_blob_2_1" index="1"]
+cast_shadow = 2
+gi_mode = 0
+
+[node name="pSphere66" parent="main_blob_2_1" index="2"]
+cast_shadow = 2
+gi_mode = 0
+
+[editable path="main_blob_2_1"]
