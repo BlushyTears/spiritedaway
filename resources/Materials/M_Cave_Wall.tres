@@ -1,0 +1,27 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://csar76wkbopnn"]
+
+[ext_resource type="Texture2D" uid="uid://b75gk35cpeeh8" path="res://resources/Textures/Quarry Slate Detail Rock Stained 01_xbknedb/AO_2K__xbknedb.jpg" id="2_5bwq6"]
+[ext_resource type="Texture2D" uid="uid://t8q0tobukjqa" path="res://resources/Textures/Quarry Slate Detail Rock Stained 01_xbknedb/Albedo_2K__xbknedb.jpg" id="2_vcrwc"]
+[ext_resource type="Texture2D" uid="uid://d12rn365e8xbh" path="res://resources/Textures/Quarry Slate Detail Rock Stained 01_xbknedb/Normal_2K__xbknedb.jpg" id="3_fg7rd"]
+[ext_resource type="Texture2D" uid="uid://fokn327omkch" path="res://resources/Textures/Quarry Slate Detail Rock Stained 01_xbknedb/Displacement_2K__xbknedb.exr" id="3_vfvap"]
+[ext_resource type="Texture2D" uid="uid://cl7x78bgup0x3" path="res://resources/Textures/Quarry Slate Detail Rock Stained 01_xbknedb/Roughness_2K__xbknedb.jpg" id="5_ci3xo"]
+
+[resource]
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_vcrwc")
+metallic = 0.57
+roughness = 0.86
+roughness_texture = ExtResource("5_ci3xo")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = -3.71
+normal_texture = ExtResource("3_fg7rd")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_5bwq6")
+ao_texture_channel = 4
+heightmap_texture = ExtResource("3_vfvap")
+uv1_scale = Vector3(0.025, 0.025, 0.025)
+uv1_triplanar = true
+uv1_world_triplanar = true
