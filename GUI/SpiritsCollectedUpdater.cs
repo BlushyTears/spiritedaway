@@ -3,11 +3,32 @@ using System;
 
 public partial class SpiritsCollectedUpdater : Label
 {
+	[Export]
+	public String type = "spiritcnt";
 	
-	public override void _Ready() {}
+	private String bufferText;
+	
+	public override void _Ready() {
+		if (type=="deathlabel") {
+			bufferText = GetText();
+			SetText("");
+		}
+	}
 
 	public override void _Process(double delta) {
-		SetText(""+ GameController._collectedCount);
+		if (type=="deathlabel") {
+			if (GameController._timesDied>0) {
+				SetText(bufferText);
+			}
+		} else if (type=="deathcnt") {
+			if (GameController._timesDied>0) {
+				SetText(""+ GameController._timesDied);
+			} else {
+				SetText("");
+			}
+		} else if (type=="spiritcnt") {
+			SetText(""+ GameController._collectedCount);
+		}
 	}
 	
 }

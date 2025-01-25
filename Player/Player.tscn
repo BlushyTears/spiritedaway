@@ -32,6 +32,7 @@ _soundLeaveBubble = ExtResource("2_8okgy")
 _soundOutWarning = ExtResource("3_cwj3s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
 mesh = SubResource("CapsuleMesh_6soud")
 
 [node name="CapsuleCollider" type="CollisionShape3D" parent="."]

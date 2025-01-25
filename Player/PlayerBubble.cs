@@ -14,34 +14,34 @@ public partial class PlayerBubble : Node3D
 	[Export]
 	public RayCast3D _rayCast;
 
-    //-----------------------------------------------
-    // Override
-    //-----------------------------------------------
+	//-----------------------------------------------
+	// Override
+	//-----------------------------------------------
 
-    public override void _Ready()
-    {
-        base._Ready();
+	public override void _Ready()
+	{
+		base._Ready();
 		_originalScale = Scale.X;
 		SetControlled(false);
-    }
+	}
 
-    public override void _PhysicsProcess(double delta)
-    {
-        base._PhysicsProcess(delta);
+	public override void _PhysicsProcess(double delta)
+	{
+		base._PhysicsProcess(delta);
 
 		// Move to ground if levitating in the air
 		if (!_controlled && _rayCast.GetCollider() == null)
 			Position += Vector3.Down * _groundingSpeed * (float)delta;
-    }
+	}
 
-    //-----------------------------------------------
-    // Signals
-    //-----------------------------------------------
+	//-----------------------------------------------
+	// Signals
+	//-----------------------------------------------
 
-    private void OnBodyEntered(Node3D body)
+	private void OnBodyEntered(Node3D body)
 	{
 		// Is player - setup colliding bubble
-		Player player = (Player)body;
+		Player player = body as Player;
 		if (player != null)
 		{
 			player.SetCollidingBubble(this);
@@ -51,7 +51,7 @@ public partial class PlayerBubble : Node3D
 	private void OnBodyExited(Node3D body)
 	{
 		// Is player - remove colliding bubble
-		Player player = (Player)body;
+		Player player = body as Player;
 		if (player != null)
 		{
 			player.SetCollidingBubble(null);
@@ -59,8 +59,8 @@ public partial class PlayerBubble : Node3D
 	}
 
 	//-----------------------------------------------
-    // Methods
-    //-----------------------------------------------
+	// Methods
+	//-----------------------------------------------
 
 	public float SetGrowth(int steps)
 	{

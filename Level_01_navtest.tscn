@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://di1t5t6ol4ouc"]
+[gd_scene load_steps=15 format=3 uid="uid://di1t5t6ol4ouc"]
 
 [ext_resource type="PackedScene" uid="uid://cxgb2rwmti5r2" path="res://GUI/UserInterface.tscn" id="1_r27d2"]
 [ext_resource type="PackedScene" uid="uid://rnscx2wflgbn" path="res://Player/PlayerBubble.tscn" id="2_msgmq"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://fx0wh210hmwx" path="res://Enemy/very_scary_place.tscn" id="6_dc2u7"]
 [ext_resource type="PackedScene" uid="uid://bs8205wr8uftb" path="res://Enemy/very_scared_spirit.tscn" id="7_h1r2h"]
 [ext_resource type="PackedScene" uid="uid://davj0ik2iqn4u" path="res://Player/game_controller.tscn" id="8_d767s"]
+[ext_resource type="PackedScene" uid="uid://cm58k3h6rhyew" path="res://Placeable/exit_gate.tscn" id="10_c3rdc"]
+[ext_resource type="PackedScene" uid="uid://dtwai3lccrxuv" path="res://Placeable/checkpoint.tscn" id="11_c12t8"]
 
 [sub_resource type="Environment" id="Environment_6uwbg"]
 background_mode = 1
@@ -103,3 +105,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9943, 3.66769, 3.96868)
 [node name="SpiritCollected" type="Node3D" parent="."]
 
 [node name="GameController" parent="." instance=ExtResource("8_d767s")]
+
+[node name="ExitGate" parent="." instance=ExtResource("10_c3rdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.889, 1.43012, 0)
+
+[node name="Checkpoint" parent="." instance=ExtResource("11_c12t8")]
+transform = Transform3D(0.999957, -0.00923267, 0, 0.00923267, 0.999957, 0, 0, 0, 1, 31.7002, 1.28899, 0)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("11_c12t8")]
+transform = Transform3D(0.995896, -0.0905109, 0, 0.0905109, 0.995896, 0, 0, 0, 1, 99.6946, 0.975995, -29.1053)
+
+[node name="Checkpoint3" parent="." instance=ExtResource("11_c12t8")]
+transform = Transform3D(0.999989, 0.00469492, 0, -0.00469492, 0.999989, 0, 0, 0, 1, 52.8745, 1.60894, -79.081)

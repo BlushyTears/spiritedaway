@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtwai3lccrxuv"]
+
+[ext_resource type="Script" path="res://Enemy/PlayerCollideDetector.cs" id="1_b4ijn"]
+
+[node name="Checkpoint" type="Node3D"]
+script = ExtResource("1_b4ijn")
+type = "checkpoint"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(3, 1, 3)

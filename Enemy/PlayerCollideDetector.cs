@@ -17,14 +17,18 @@ public partial class PlayerCollideDetector : Node3D
 	public override void _Process(double delta)
 	{
 		float dist = GlobalTransform.Origin.DistanceTo(thePlayer.GlobalTransform.Origin);
-		if (dist<1) {
-			if (type=="spirit") {
-				Node3D ani = spiritCollectedAnimation.Instantiate<Node3D>();
-				ani.GlobalPosition = GlobalTransform.Origin;
-				GetParent().GetParent().AddChild(ani);
-				GameController._collectedCount++;
-				GetParent().QueueFree();
+		if (dist<1 && type=="spirit") {
+			Node3D ani = spiritCollectedAnimation.Instantiate<Node3D>();
+			ani.GlobalPosition = GlobalTransform.Origin;
+			GetParent().GetParent().AddChild(ani);
+			GameController._collectedCount++;
+			GetParent().QueueFree();
+		} else if (dist<2 && type=="exitgate") {
+			if (GameController._collectedCount>=5 && !GameController._victory) {
+				GameController.VictoryStateViaExitPortal();
 			}
+		} else if (dist<4 && type=="checkpoint") {
+			GameController.AppendCheckpoint(GlobalPosition);
 		}
 	}
 }
