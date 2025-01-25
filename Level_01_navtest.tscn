@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://di1t5t6ol4ouc"]
+[gd_scene load_steps=13 format=3 uid="uid://di1t5t6ol4ouc"]
 
+[ext_resource type="PackedScene" uid="uid://cxgb2rwmti5r2" path="res://GUI/UserInterface.tscn" id="1_r27d2"]
 [ext_resource type="PackedScene" uid="uid://rnscx2wflgbn" path="res://Player/PlayerBubble.tscn" id="2_msgmq"]
 [ext_resource type="PackedScene" uid="uid://caofxh6w7jsmb" path="res://resources/Models/TerrainBase.fbx" id="2_ug8ok"]
 [ext_resource type="PackedScene" uid="uid://usga44akkdwq" path="res://resources/Models/Ground_C_10m.fbx" id="3_wd632"]
@@ -39,6 +40,8 @@ polygons = [PackedInt32Array(14, 4, 3), PackedInt32Array(4, 15, 0), PackedInt32A
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00574684, 0, 0.0313234)
+
+[node name="Control" parent="." instance=ExtResource("1_r27d2")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6uwbg")
