@@ -52,7 +52,7 @@ script = ExtResource("4_jw6l5")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.17387, 0)
 light_color = Color(0.807944, 0.486534, 0.0679204, 1)
-light_energy = 20.0
-omni_range = 30.0
+light_energy = 30.0
+omni_range = 50.0
 
 [editable path="Portal"]
