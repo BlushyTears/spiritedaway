@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=3 uid="uid://lrhm5qe4pd44"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_3xaqb"]
-[ext_resource type="AudioStream" uid="uid://cu0hcbt1xgt1r" path="res://Enter exit bubble.wav" id="2_8okgy"]
 [ext_resource type="PackedScene" uid="uid://b0aoqykga2xhi" path="res://UI/PlayerHUD.tscn" id="2_wkbgr"]
+[ext_resource type="AudioStream" uid="uid://b8h56bp3q0guv" path="res://Bubble music enter.mp3" id="2_xpn4m"]
 [ext_resource type="AudioStream" uid="uid://cftopasm0lxu3" path="res://Stress white noise.wav" id="3_cwj3s"]
 [ext_resource type="PackedScene" uid="uid://q8ocm1k6rer" path="res://resources/Props/main_blob_2.1.fbx" id="5_lm1x2"]
 [ext_resource type="Shader" path="res://resources/Shaders/VerteAnimation.gdshader" id="6_ivpak"]
@@ -103,8 +103,8 @@ _cameraRayCast = NodePath("CameraHolder/RayCast3D")
 _bubbleCollider = NodePath("BubbleShapeCollider")
 _outBubbleTimeWarning = 10.0
 _audioPlayer = NodePath("AudioStreamPlayer3D")
-_soundEnterBubble = ExtResource("2_8okgy")
-_soundLeaveBubble = ExtResource("2_8okgy")
+_soundEnterBubble = ExtResource("2_xpn4m")
+_soundLeaveBubble = ExtResource("2_xpn4m")
 _soundOutWarning = ExtResource("3_cwj3s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
