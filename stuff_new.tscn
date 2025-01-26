@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1pya3ydjeukp"]
+
+[ext_resource type="PackedScene" uid="uid://lrhm5qe4pd44" path="res://Player/Player.tscn" id="1_pmyd7"]
+[ext_resource type="PackedScene" uid="uid://bqh1n6tnggwyk" path="res://Particles.tscn" id="2_43oqr"]
+[ext_resource type="PackedScene" uid="uid://rnscx2wflgbn" path="res://Player/PlayerBubble.tscn" id="3_8cj1q"]
+[ext_resource type="PackedScene" uid="uid://bs8205wr8uftb" path="res://Enemy/very_scared_spirit.tscn" id="4_7ar1n"]
+[ext_resource type="PackedScene" uid="uid://cm58k3h6rhyew" path="res://Placeable/exit_gate.tscn" id="5_tba7e"]
+[ext_resource type="PackedScene" uid="uid://dtwai3lccrxuv" path="res://Placeable/checkpoint.tscn" id="6_ucgp8"]
+
+[node name="Stuff" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_pmyd7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.13991, 0)
+
+[node name="Node3D" parent="Player" instance=ExtResource("2_43oqr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.38364, 0)
+
+[node name="PlayerBubble" parent="." instance=ExtResource("3_8cj1q")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 6.06314, 3.09614)
+
+[node name="VeryScaredSpirit" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.08289, -4.30975)
+
+[node name="VeryScaredSpirit2" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5539, 11.0895, 5.77557)
+
+[node name="VeryScaredSpirit3" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05179, 11.0895, 9.62842)
+
+[node name="VeryScaredSpirit4" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.9126, 11.0895, -0.278758)
+
+[node name="VeryScaredSpirit5" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.1584, 0.70974, -26.7588)
+
+[node name="VeryScaredSpirit6" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.1921, 0.70974, -49.0464)
+
+[node name="VeryScaredSpirit7" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1375, 0.70974, -80.9606)
+
+[node name="VeryScaredSpirit8" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.1589, 0.70974, -29.9085)
+
+[node name="VeryScaredSpirit9" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.0705, 0.70974, -89.286)
+
+[node name="VeryScaredSpirit10" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.1441, 0.709736, -80.4837)
+
+[node name="VeryScaredSpirit11" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2191, 0.709736, -36.9504)
+
+[node name="VeryScaredSpirit12" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.905, 0.709736, -30.2237)
+
+[node name="VeryScaredSpirit13" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.8892, 0.709736, 16.9068)
+
+[node name="VeryScaredSpirit14" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.9337, 0.709736, 32.9972)
+
+[node name="VeryScaredSpirit15" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8664, 0.709736, 20.0276)
+
+[node name="VeryScaredSpirit16" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.8831, 0.709736, 58.4252)
+
+[node name="VeryScaredSpirit17" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.76441, 0.709736, 67.5861)
+
+[node name="VeryScaredSpirit18" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3016, 0.709736, 60.2175)
+
+[node name="VeryScaredSpirit19" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.9824, 0.709736, 50.2759)
+
+[node name="VeryScaredSpirit20" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.9914, 7.96868, 43.0431)
+
+[node name="VeryScaredSpirit21" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.9951, 7.96868, 33.4172)
+
+[node name="VeryScaredSpirit22" parent="." instance=ExtResource("4_7ar1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.8852, 13.3651, 38.599)
+
+[node name="ExitGate" parent="." instance=ExtResource("5_tba7e")]
+transform = Transform3D(0.0992039, 0, 2.99836, 0, 3, 0, -2.99836, 0, 0.0992039, -3.18564, 4.97547, 42.1117)
+
+[node name="Checkpoint" parent="." instance=ExtResource("6_ucgp8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.814, 1.26719, 34.9937)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("6_ucgp8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.166, 2.48166, 38.9128)
+
+[node name="Checkpoint3" parent="." instance=ExtResource("6_ucgp8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8973, 3.55715, -55.3)

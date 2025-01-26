@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cm58k3h6rhyew"]
+[gd_scene load_steps=7 format=3 uid="uid://cm58k3h6rhyew"]
 
 [ext_resource type="Script" path="res://Placeable/ExitGate.cs" id="1_mhtuw"]
 [ext_resource type="Script" path="res://Enemy/PlayerCollideDetector.cs" id="1_mxapf"]
 [ext_resource type="PackedScene" uid="uid://7jgio0lljt1y" path="res://resources/Models/Portal.fbx" id="3_mm3tt"]
+[ext_resource type="Script" path="res://Placeable/BeamWobble.cs" id="4_jw6l5"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0f34f"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_iobwl"]
 
 [node name="ExitGate" type="Node3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_mxapf")
 type = "exitgate"
 
@@ -43,6 +45,9 @@ color = Color(0.450322, 0.280392, 0.761836, 1)
 
 [node name="Portal" parent="." instance=ExtResource("3_mm3tt")]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.283633, 0.768096, 0.11917)
+
+[node name="Beam" parent="Portal/Portal" index="0"]
+script = ExtResource("4_jw6l5")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.17387, 0)
