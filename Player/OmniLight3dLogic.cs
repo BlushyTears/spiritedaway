@@ -16,18 +16,20 @@ public partial class OmniLight3dLogic : OmniLight3D
 	public override void _Process(double delta)
 	{
 		if (GameController.insideBubble) {
-			if (OmniRange<15) {
-				OmniRange += (float)delta*4;
-				if (OmniRange>15) {
-					OmniRange = 15;
+			if (OmniRange<30) {
+				OmniRange += (float)delta*5;
+				if (OmniRange>30) {
+					OmniRange = 30;
 				}
 			}
+		} else if (OmniRange>15) {
+			OmniRange -= (float)delta*2.25f;
 		} else if (OmniRange>10) {
 			OmniRange -= (float)delta*1.5f;
-		} else if (OmniRange>5) {
+		} else if (OmniRange>4) {
 			OmniRange -= (float)delta*0.75f;
-			if (OmniRange<5) {
-				OmniRange = 5;
+			if (OmniRange<4) {
+				OmniRange = 4;
 			}
 		}
 		if (thePhere!=null) {
