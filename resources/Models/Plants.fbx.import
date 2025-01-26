@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b5d0865ogy3dg"
-path="res://.godot/imported/Pool.fbx-96b90b67dc95f7977e61692ce9ebdf1c.scn"
+uid="uid://b1qcsppy87kf3"
+path="res://.godot/imported/Plants.fbx-821767aac08742e85e12a32886e6d902.scn"
 
 [deps]
 
-source_file="res://resources/Models/Pool.fbx"
-dest_files=["res://.godot/imported/Pool.fbx-96b90b67dc95f7977e61692ce9ebdf1c.scn"]
+source_file="res://resources/Models/Plants.fbx"
+dest_files=["res://.godot/imported/Plants.fbx-821767aac08742e85e12a32886e6d902.scn"]
 
 [params]
 

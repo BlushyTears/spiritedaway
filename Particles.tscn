@@ -49,9 +49,9 @@ emission_energy_multiplier = 0.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5iwma"]
 transparency = 1
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0.966667, 0, 0.756863)
+albedo_color = Color(0.348449, 0.66255, 0.66019, 0.756863)
 emission_enabled = true
-emission = Color(1, 0.962196, 0.290693, 1)
+emission = Color(0.25098, 0.960784, 0.866667, 1)
 emission_energy_multiplier = 0.8
 
 [sub_resource type="Gradient" id="Gradient_gyryx"]
