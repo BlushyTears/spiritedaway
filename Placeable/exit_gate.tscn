@@ -43,3 +43,11 @@ color = Color(0.450322, 0.280392, 0.761836, 1)
 
 [node name="Portal" parent="." instance=ExtResource("3_mm3tt")]
 transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -0.283633, 0.768096, 0.11917)
+
+[node name="SpotLight3D1" type="SpotLight3D" parent="."]
+transform = Transform3D(0.965926, -1.13133e-08, 0.258819, -0.258819, -4.2222e-08, 0.965926, 0, -1, -4.37114e-08, 2, 4.36695, 0)
+spot_range = 10.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(0.965926, 1.13133e-08, -0.258819, 0.258819, -4.2222e-08, 0.965926, 0, -1, -4.37114e-08, -2, 4.36695, 0)
+spot_range = 10.0

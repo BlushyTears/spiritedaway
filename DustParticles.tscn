@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dbl6pdrbjbanq"]
+[gd_scene load_steps=18 format=3 uid="uid://bowt2lagxjyf0"]
 
 [sub_resource type="CSharpScript" id="CSharpScript_fqhi8"]
 script/source = "using Godot;
@@ -44,15 +44,15 @@ albedo_texture = SubResource("ImageTexture_0t65x")
 metallic_specular = 1.0
 emission_enabled = true
 emission = Color(0.998817, 0.966502, 0.95207, 1)
-emission_energy_multiplier = 0.5
+emission_energy_multiplier = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5iwma"]
 transparency = 1
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.449138, 0.776014, 0.772983, 0.756863)
+albedo_color = Color(0.535187, 0.760331, 0.747185, 0.756863)
 emission_enabled = true
-emission = Color(0.766653, 0.81705, 0.795931, 1)
-emission_energy_multiplier = 0.1
+emission = Color(0.397817, 0.845813, 0.662356, 1)
+emission_energy_multiplier = 2.0
 
 [sub_resource type="Gradient" id="Gradient_gyryx"]
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
