@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1q6j43baqlwm"]
+[gd_scene load_steps=7 format=3 uid="uid://b1q6j43baqlwm"]
 
 [ext_resource type="PackedScene" uid="uid://lrhm5qe4pd44" path="res://Player/Player.tscn" id="1_mec3x"]
 [ext_resource type="PackedScene" uid="uid://rnscx2wflgbn" path="res://Player/PlayerBubble.tscn" id="2_bkcdh"]
+[ext_resource type="PackedScene" uid="uid://bqh1n6tnggwyk" path="res://Particles.tscn" id="2_jh1xk"]
 [ext_resource type="PackedScene" uid="uid://bs8205wr8uftb" path="res://Enemy/very_scared_spirit.tscn" id="3_j5i6y"]
 [ext_resource type="PackedScene" uid="uid://cm58k3h6rhyew" path="res://Placeable/exit_gate.tscn" id="4_h7fh3"]
 [ext_resource type="PackedScene" uid="uid://dtwai3lccrxuv" path="res://Placeable/checkpoint.tscn" id="5_fjwj2"]
@@ -10,6 +11,9 @@
 
 [node name="Player" parent="." instance=ExtResource("1_mec3x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.13991, 0)
+
+[node name="Node3D" parent="Player" instance=ExtResource("2_jh1xk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.38364, 0)
 
 [node name="PlayerBubble" parent="." instance=ExtResource("2_bkcdh")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 6.06314, 3.09614)
