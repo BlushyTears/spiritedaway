@@ -16,18 +16,36 @@ public partial class OmniLight3dLogic : OmniLight3D
 	public override void _Process(double delta)
 	{
 		if (GameController.insideBubble) {
-			if (OmniRange<30) {
+			if (OmniRange<7.5f) {
+				OmniRange += (float)delta*15;
+			} else if (OmniRange<15) {
+				OmniRange += (float)delta*10;
+			} else if (OmniRange<30) {
 				OmniRange += (float)delta*5;
 				if (OmniRange>30) {
 					OmniRange = 30;
 				}
 			}
-		} else if (OmniRange>15) {
-			OmniRange -= (float)delta*2.25f;
-		} else if (OmniRange>10) {
-			OmniRange -= (float)delta*1.5f;
+		} else if (OmniRange>24) {
+			OmniRange -= (float)delta*2.5f;
+		} else if (OmniRange>20) {
+			OmniRange -= (float)delta*2.2f;
+		} else if (OmniRange>16) {
+			OmniRange -= (float)delta*1.9f;
+		} else if (OmniRange>12) {
+			OmniRange -= (float)delta*1.6f;
+		} else if (OmniRange>8) {
+			OmniRange -= (float)delta*1.3f;
+		} else if (OmniRange>6) {
+			OmniRange -= (float)delta*1.0f;
+		} else if (OmniRange>5) {
+			OmniRange -= (float)delta*0.7f;
+		} else if (OmniRange>4.5) {
+			OmniRange -= (float)delta*0.5f;
+		} else if (OmniRange>4.25) {
+			OmniRange -= (float)delta*0.3f;
 		} else if (OmniRange>4) {
-			OmniRange -= (float)delta*0.75f;
+			OmniRange -= (float)delta*0.2f;
 			if (OmniRange<4) {
 				OmniRange = 4;
 			}
