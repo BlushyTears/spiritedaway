@@ -43,7 +43,7 @@ gravity = Vector3(0, 0, 0)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kbj4h"]
 render_priority = 0
 shader = ExtResource("6_ivpak")
-shader_parameter/albedo = Color(0.89702, 0.535864, 0, 1)
+shader_parameter/albedo = Color(0.101726, 0.770631, 0.831007, 1)
 shader_parameter/roughness = 0.0
 shader_parameter/metallic_texture_channel = null
 shader_parameter/specular = 0.0
@@ -65,7 +65,7 @@ blend_mode = 1
 cull_mode = 1
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
-emission = Color(0.951126, 0.439216, 0, 1)
+emission = Color(0, 0.69091, 0.739537, 1)
 emission_energy_multiplier = 13.95
 emission_operator = 1
 emission_texture = ExtResource("7_fdtqv")
@@ -94,17 +94,17 @@ _bubbleJumpVelocity = 12.0
 _outJumpVelocity = 8.0
 _jumpGravityModified = 2.0
 _fallGravityModified = 5.0
-_rotationVLimit = 20.0
-_soundEnterBubble = ExtResource("2_8okgy")
-_soundLeaveBubble = ExtResource("2_8okgy")
-_soundOutWarning = ExtResource("3_cwj3s")
 _avatarModel = NodePath("MeshInstance3D")
 _capsuleCollider = NodePath("CapsuleCollider")
+_rotationVLimit = 20.0
 _cameraHolder = NodePath("CameraHolder")
 _camera = NodePath("CameraHolder/Camera3D")
 _cameraRayCast = NodePath("CameraHolder/RayCast3D")
 _bubbleCollider = NodePath("BubbleShapeCollider")
 _audioPlayer = NodePath("AudioStreamPlayer3D")
+_soundEnterBubble = ExtResource("2_8okgy")
+_soundLeaveBubble = ExtResource("2_8okgy")
+_soundOutWarning = ExtResource("3_cwj3s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
@@ -133,7 +133,7 @@ _player = NodePath("..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00175733, -0.742018, 0.000434998)
-light_color = Color(0.9747, 0.314584, 0, 1)
+light_color = Color(0.266206, 0.638651, 0.651765, 1)
 light_energy = 15.0
 light_size = 0.183
 omni_range = 1.5
