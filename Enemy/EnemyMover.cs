@@ -12,6 +12,8 @@ public partial class EnemyMover : NavigationAgent3D {
 	[Export]
 	public float roamingSpeed = 1.0f;
 	
+	private bool firstMove = true;
+	
 	private Node3D enemyNodeToMove = null;
 	private NavigationAgent3D navAgent = null;
 	private double newTargetCooldown = 0;
@@ -105,7 +107,12 @@ public partial class EnemyMover : NavigationAgent3D {
 			Vector3 dirTowards = (nextPos - enemyNodeToMove.GlobalPosition).Normalized();
 			dirTowards.Y = 0;
 			enemyNodeToMove.LookAt(enemyNodeToMove.GlobalPosition + dirTowards, Vector3.Up);
-			myCachedTransform.Origin = myCachedTransform.Origin.MoveToward(nextPos, (float)delta*(roaming?roamingSpeed:fleeSpeed));
+			if (firstMove) {
+				myCachedTransform.Origin = nextPosOrig;
+				firstMove = false;
+			} else {
+				myCachedTransform.Origin = myCachedTransform.Origin.MoveToward(nextPos, (float)delta*(roaming?roamingSpeed:fleeSpeed));
+			}
 			enemyNodeToMove.GlobalTransform = myCachedTransform;
 		}
 	}
