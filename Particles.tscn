@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dbl6pdrbjbanq"]
+[gd_scene load_steps=18 format=3 uid="uid://bqh1n6tnggwyk"]
 
 [sub_resource type="CSharpScript" id="CSharpScript_fqhi8"]
 script/source = "using Godot;
@@ -48,11 +48,13 @@ emission_energy_multiplier = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5iwma"]
 transparency = 1
+diffuse_mode = 3
+specular_mode = 2
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.449138, 0.776014, 0.772983, 0.756863)
+albedo_color = Color(0, 0, 0, 0.756863)
 emission_enabled = true
-emission = Color(0.766653, 0.81705, 0.795931, 1)
-emission_energy_multiplier = 0.1
+emission = Color(6.93083e-06, 0.794874, 0.962937, 1)
+emission_energy_multiplier = 0.25
 
 [sub_resource type="Gradient" id="Gradient_gyryx"]
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
@@ -90,11 +92,14 @@ anim_speed_max = 1.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bbcel"]
 transparency = 1
 blend_mode = 1
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 2
 vertex_color_use_as_albedo = true
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
 emission = Color(0.31748, 0.0709178, 0.518734, 1)
-emission_energy_multiplier = 0.2
+emission_energy_multiplier = 0.3
 
 [sub_resource type="SphereMesh" id="SphereMesh_vhoc2"]
 
@@ -125,7 +130,7 @@ color_initial_ramp = SubResource("GradientTexture1D_ae58u")
 anim_speed_min = 0.05
 anim_speed_max = 1.5
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81425, 0)
 script = SubResource("CSharpScript_fqhi8")
 
@@ -147,7 +152,6 @@ process_material = SubResource("ParticleProcessMaterial_7pxaq")
 draw_pass_1 = SubResource("SphereMesh_x5xoj")
 
 [node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="CharacterBody3D/GPUParticles3D"]
-strength = 5.0
 radius = 5.0
 
 [node name="PurpleNorth" type="CPUParticles3D" parent="CharacterBody3D"]
@@ -171,7 +175,7 @@ angular_velocity_max = 10.0
 angle_min = 1.07288e-05
 angle_max = 720.0
 scale_amount_min = 0.3
-scale_amount_max = 0.3
+scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_6suu8")
 color_ramp = SubResource("Gradient_ajdxq")
 color_initial_ramp = SubResource("Gradient_gyryx")
@@ -267,6 +271,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.270835, 3.09061, 5.57667)
 
 [node name="DustParticlesSW" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2171, 3.44412, -23.6814)
+visible = false
 material_override = SubResource("StandardMaterial3D_5iwma")
 amount = 75
 lifetime = 8.0
@@ -276,6 +281,7 @@ draw_pass_1 = SubResource("SphereMesh_x5xoj")
 
 [node name="DustParticlesSW2" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9569, 3.44412, 23.2281)
+visible = false
 material_override = SubResource("StandardMaterial3D_5iwma")
 amount = 75
 lifetime = 8.0
@@ -285,6 +291,7 @@ draw_pass_1 = SubResource("SphereMesh_x5xoj")
 
 [node name="DustParticlesSW3" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9549, 3.44412, 18.8873)
+visible = false
 material_override = SubResource("StandardMaterial3D_5iwma")
 amount = 75
 lifetime = 8.0
@@ -294,6 +301,7 @@ draw_pass_1 = SubResource("SphereMesh_x5xoj")
 
 [node name="DustParticlesSW4" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5854, 3.44412, -21.6726)
+visible = false
 material_override = SubResource("StandardMaterial3D_5iwma")
 amount = 75
 lifetime = 8.0
