@@ -9,11 +9,14 @@ public partial class PlayerHud : CanvasLayer
 	public Label _lblBubbleHint;
 	[Export]
 	private Player _player;
+	[Export]
+	public TextureRect _dark;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		_lblBubbleHint.Text = "";
+		_dark.Visible = false;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -40,6 +43,22 @@ public partial class PlayerHud : CanvasLayer
 				_lblBubbleHint.Text = "Return to bubble!";
 			else
 				_lblBubbleHint.Text = "";
+		}
+
+
+		// Death
+		if (_player._hp <= 0)
+		{
+			_dark.Visible = true;
+			float fade = _dark.Modulate.A;
+			fade = Mathf.Lerp(fade, 1, (float)delta);
+			fade = Mathf.Clamp(fade, 0, 1);
+			_dark.Modulate = new Color(0, 0, 0, fade * 1.05f);
+		}
+		else
+		{
+			_dark.Visible = false;
+			_dark.Modulate = new Color(0, 0, 0, 0);
 		}
 	}
 }

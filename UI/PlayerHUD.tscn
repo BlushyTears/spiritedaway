@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0aoqykga2xhi"]
+[gd_scene load_steps=3 format=3 uid="uid://b0aoqykga2xhi"]
 
 [ext_resource type="Script" path="res://UI/PlayerHud.cs" id="1_kygfo"]
 
-[node name="PlayerHud" type="CanvasLayer" node_paths=PackedStringArray("_lblCollected", "_lblBubbleHint")]
+[sub_resource type="CanvasTexture" id="CanvasTexture_ho2nw"]
+
+[node name="PlayerHud" type="CanvasLayer" node_paths=PackedStringArray("_lblCollected", "_lblBubbleHint", "_dark")]
 script = ExtResource("1_kygfo")
 _lblCollected = NodePath("Lbl_Collected")
 _lblBubbleHint = NodePath("Lbl_BubbleHint")
+_dark = NodePath("TextureRect")
 
 [node name="Lbl_Collected" type="Label" parent="."]
 visible = false
@@ -39,3 +42,19 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 18
 text = "E"
 horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1440.0
+offset_top = -1153.0
+offset_right = 1596.0
+offset_bottom = 1119.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_ho2nw")

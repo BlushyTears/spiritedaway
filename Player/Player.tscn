@@ -86,7 +86,7 @@ emission = Color(1, 0.388235, 0, 1)
 emission_operator = 1
 emission_texture = ExtResource("7_fdtqv")
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_avatarModel", "_capsuleCollider", "_cameraHolder", "_camera", "_cameraRayCast", "_bubbleCollider", "_audioPlayer")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_avatarModel", "_capsuleCollider", "_cameraHolder", "_camera", "_cameraRayCast", "_bubbleCollider", "_audioPlayer", "_deathTimer")]
 script = ExtResource("1_3xaqb")
 _bubbleSpeed = 4.0
 _outSpeed = 8.0
@@ -106,6 +106,7 @@ _audioPlayer = NodePath("AudioStreamPlayer3D")
 _soundEnterBubble = ExtResource("2_xpn4m")
 _soundLeaveBubble = ExtResource("2_xpn4m")
 _soundOutWarning = ExtResource("3_cwj3s")
+_deathTimer = NodePath("DeathTimer")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
@@ -126,6 +127,7 @@ target_position = Vector3(0, 4, 4)
 [node name="BubbleShapeCollider" type="CollisionShape3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 shape = SubResource("SphereShape3D_h1hqr")
+disabled = true
 
 [node name="PlayerHud" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("2_wkbgr")]
 _player = NodePath("..")
@@ -596,5 +598,11 @@ handle_distance = 0.12
 [node name="Limbs" parent="main_blob_2_1/Skeleton3D" index="20"]
 material_override = SubResource("StandardMaterial3D_5pxvy")
 cast_shadow = 0
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="DeathTimer" to="." method="OnDeathTimerTimeout"]
 
 [editable path="main_blob_2_1"]
