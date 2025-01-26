@@ -17,15 +17,15 @@ public partial class OmniLight3dLogic : OmniLight3D
 	{
 		if (GameController.insideBubble) {
 			if (OmniRange<15) {
-				OmniRange += (float)delta*3;
+				OmniRange += (float)delta*4;
 				if (OmniRange>15) {
 					OmniRange = 15;
 				}
 			}
 		} else if (OmniRange>10) {
-			OmniRange -= (float)delta;
+			OmniRange -= (float)delta*1.5f;
 		} else if (OmniRange>5) {
-			OmniRange -= (float)delta/2f;
+			OmniRange -= (float)delta*0.75f;
 			if (OmniRange<5) {
 				OmniRange = 5;
 			}
