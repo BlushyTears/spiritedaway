@@ -1,0 +1,302 @@
+[gd_scene load_steps=18 format=3 uid="uid://bowt2lagxjyf0"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_fqhi8"]
+script/source = "using Godot;
+
+public class FogControl : Node
+{
+    public override void _Ready()
+    {
+        // Access the WorldEnvironment node
+        WorldEnvironment worldEnvironment = GetNode<WorldEnvironment>(\"WorldEnvironment\");
+
+        // Access the Environment resource
+        Environment environment = worldEnvironment.Environment;
+
+        // Enable fog
+        environment.FogEnabled = true;
+
+        // Set fog color
+        environment.FogColor = new Color(0.5f, 0.6f, 0.7f); // Light bluish-gray fog
+
+        // Set fog distance parameters
+        environment.FogDepthBegin = 10.0f;  // Distance where fog starts
+        environment.FogDepthEnd = 100.0f;   // Distance where fog is fully opaque
+
+        // Optionally set height fog
+        environment.FogHeightEnabled = true;
+        environment.FogHeightMin = 5.0f;    // Fog starts at this height
+        environment.FogHeightMax = 20.0f;   // Fog fades out at this height
+        environment.FogHeightCurve = 1.0f;  // Exponential curve for fog density
+    }
+}
+"
+
+[sub_resource type="SphereMesh" id="SphereMesh_n3ymn"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_0t65x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k31bh"]
+transparency = 1
+vertex_color_is_srgb = true
+albedo_color = Color(0.88736, 0.907935, 0.626476, 0)
+albedo_texture = SubResource("ImageTexture_0t65x")
+metallic_specular = 1.0
+emission_enabled = true
+emission = Color(0.998817, 0.966502, 0.95207, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5iwma"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.535187, 0.760331, 0.747185, 0.756863)
+emission_enabled = true
+emission = Color(0.397817, 0.845813, 0.662356, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="Gradient" id="Gradient_gyryx"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2vf6t"]
+gradient = SubResource("Gradient_gyryx")
+
+[sub_resource type="Curve" id="Curve_6suu8"]
+max_value = 2.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.631285, 0.814252), -1.56352, -1.56352, 0, 0, Vector2(1, 0.554869), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2au08"]
+curve = SubResource("Curve_6suu8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7pxaq"]
+emission_shape = 1
+emission_sphere_radius = 0.4
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+spread = 180.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 50.0
+gravity = Vector3(0, -0.5, 0)
+scale_min = 0.05
+scale_max = 0.05
+scale_curve = SubResource("CurveTexture_2au08")
+color = Color(0.875306, 0.785287, 7.70092e-07, 1)
+color_initial_ramp = SubResource("GradientTexture1D_2vf6t")
+anim_speed_min = 0.05
+anim_speed_max = 1.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_x5xoj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bbcel"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.31748, 0.0709178, 0.518734, 1)
+emission_energy_multiplier = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_vhoc2"]
+
+[sub_resource type="Gradient" id="Gradient_ajdxq"]
+offsets = PackedFloat32Array(0.0144928, 0.293478, 0.648551, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 1, 0.0525874, 0.0525874, 0.0525874, 0.947413, 0.854545, 0.854545, 0.854545, 0.145455)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ae58u"]
+gradient = SubResource("Gradient_gyryx")
+
+[sub_resource type="CurveTexture" id="CurveTexture_3ostr"]
+curve = SubResource("Curve_6suu8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r6onq"]
+emission_shape = 1
+emission_sphere_radius = 15.0
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+spread = 180.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 50.0
+gravity = Vector3(0, -0.5, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_3ostr")
+color = Color(0.875306, 0.785287, 7.70092e-07, 1)
+color_initial_ramp = SubResource("GradientTexture1D_ae58u")
+anim_speed_min = 0.05
+anim_speed_max = 1.5
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81425, 0)
+script = SubResource("CSharpScript_fqhi8")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.808, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.158343)
+mesh = SubResource("SphereMesh_n3ymn")
+surface_material_override/0 = SubResource("StandardMaterial3D_k31bh")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.046, 0)
+material_override = SubResource("StandardMaterial3D_5iwma")
+amount = 100
+lifetime = 1.5
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_7pxaq")
+draw_pass_1 = SubResource("SphereMesh_x5xoj")
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="CharacterBody3D/GPUParticles3D"]
+strength = 5.0
+radius = 5.0
+
+[node name="PurpleNorth" type="CPUParticles3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347217, 0.13884, -12.7525)
+material_override = SubResource("StandardMaterial3D_bbcel")
+cast_shadow = 0
+amount = 50
+lifetime = 10.0
+preprocess = 0.5
+speed_scale = 0.7
+fixed_fps = 30
+visibility_aabb = AABB(-4, -4, -4, 8, 8, 8)
+mesh = SubResource("SphereMesh_vhoc2")
+emission_shape = 1
+emission_sphere_radius = 10.0
+spread = 180.0
+gravity = Vector3(0, 0.205, 0)
+initial_velocity_max = 0.5
+angular_velocity_min = -88.89
+angular_velocity_max = 10.0
+angle_min = 1.07288e-05
+angle_max = 720.0
+scale_amount_min = 0.3
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_6suu8")
+color_ramp = SubResource("Gradient_ajdxq")
+color_initial_ramp = SubResource("Gradient_gyryx")
+anim_speed_min = 0.05
+anim_speed_max = 1.5
+
+[node name="PurpleSouth" type="CPUParticles3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291967, 0.18512, 11.6166)
+material_override = SubResource("StandardMaterial3D_bbcel")
+cast_shadow = 0
+amount = 50
+lifetime = 10.0
+preprocess = 0.5
+speed_scale = 0.7
+fixed_fps = 30
+visibility_aabb = AABB(-4, -4, -4, 8, 8, 8)
+mesh = SubResource("SphereMesh_vhoc2")
+emission_shape = 1
+emission_sphere_radius = 10.0
+spread = 180.0
+gravity = Vector3(0, 0.1, 0)
+initial_velocity_max = 0.5
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 10.0
+angle_min = 1.07288e-05
+angle_max = 720.0
+scale_amount_min = 0.3
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_6suu8")
+color_ramp = SubResource("Gradient_ajdxq")
+color_initial_ramp = SubResource("Gradient_gyryx")
+anim_speed_min = 0.05
+anim_speed_max = 1.5
+
+[node name="PurpleSouth2" type="CPUParticles3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6505, 0.555359, -0.563934)
+material_override = SubResource("StandardMaterial3D_bbcel")
+cast_shadow = 0
+amount = 50
+lifetime = 10.0
+preprocess = 0.5
+speed_scale = 0.7
+fixed_fps = 30
+visibility_aabb = AABB(-4, -4, -4, 8, 8, 8)
+mesh = SubResource("SphereMesh_vhoc2")
+emission_shape = 1
+emission_sphere_radius = 10.0
+spread = 180.0
+gravity = Vector3(0, 0.1, 0)
+initial_velocity_max = 0.5
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 10.0
+angle_min = 1.07288e-05
+angle_max = 720.0
+scale_amount_min = 0.3
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_6suu8")
+color_ramp = SubResource("Gradient_ajdxq")
+color_initial_ramp = SubResource("Gradient_gyryx")
+anim_speed_min = 0.05
+anim_speed_max = 1.5
+
+[node name="PurpleSouth3" type="CPUParticles3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.434, 0.370239, -0.273476)
+material_override = SubResource("StandardMaterial3D_bbcel")
+cast_shadow = 0
+amount = 50
+lifetime = 10.0
+preprocess = 0.5
+speed_scale = 0.7
+fixed_fps = 30
+visibility_aabb = AABB(-4, -4, -4, 8, 8, 8)
+mesh = SubResource("SphereMesh_vhoc2")
+emission_shape = 1
+emission_sphere_radius = 10.0
+spread = 180.0
+gravity = Vector3(0, 0.1, 0)
+initial_velocity_max = 0.5
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 10.0
+angle_min = 1.07288e-05
+angle_max = 720.0
+scale_amount_min = 0.3
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_6suu8")
+color_ramp = SubResource("Gradient_ajdxq")
+color_initial_ramp = SubResource("Gradient_gyryx")
+anim_speed_min = 0.05
+anim_speed_max = 1.5
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.270835, 3.09061, 5.57667)
+
+[node name="DustParticlesSW" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2171, 3.44412, -23.6814)
+material_override = SubResource("StandardMaterial3D_5iwma")
+amount = 75
+lifetime = 8.0
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_r6onq")
+draw_pass_1 = SubResource("SphereMesh_x5xoj")
+
+[node name="DustParticlesSW2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9569, 3.44412, 23.2281)
+material_override = SubResource("StandardMaterial3D_5iwma")
+amount = 75
+lifetime = 8.0
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_r6onq")
+draw_pass_1 = SubResource("SphereMesh_x5xoj")
+
+[node name="DustParticlesSW3" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9549, 3.44412, 18.8873)
+material_override = SubResource("StandardMaterial3D_5iwma")
+amount = 75
+lifetime = 8.0
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_r6onq")
+draw_pass_1 = SubResource("SphereMesh_x5xoj")
+
+[node name="DustParticlesSW4" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5854, 3.44412, -21.6726)
+material_override = SubResource("StandardMaterial3D_5iwma")
+amount = 75
+lifetime = 8.0
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_r6onq")
+draw_pass_1 = SubResource("SphereMesh_x5xoj")

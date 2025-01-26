@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cld5xsmj6d4fk"]
+
+[resource]
+resource_name = "Branche"
+specular_mode = 1
+albedo_color = Color(0.26232, 0.244298, 0.192137, 1)
+metallic = 0.82
+metallic_specular = 0.4
+roughness = 0.12
+emission_enabled = true
