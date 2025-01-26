@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://lrhm5qe4pd44"]
+[gd_scene load_steps=19 format=3 uid="uid://lrhm5qe4pd44"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_3xaqb"]
 [ext_resource type="AudioStream" uid="uid://cu0hcbt1xgt1r" path="res://Enter exit bubble.wav" id="2_8okgy"]
@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cftopasm0lxu3" path="res://Stress white noise.wav" id="3_cwj3s"]
 [ext_resource type="PackedScene" uid="uid://q8ocm1k6rer" path="res://resources/Props/main_blob_2.1.fbx" id="5_lm1x2"]
 [ext_resource type="Shader" path="res://resources/Shaders/VerteAnimation.gdshader" id="6_ivpak"]
-[ext_resource type="Texture2D" uid="uid://c0ekhdhh3tsbt" path="res://resources/Textures/main_blob_2.2_uvset_2_texture.png" id="7_bu7us"]
+[ext_resource type="Texture2D" uid="uid://bupcyftdoxnpw" path="res://resources/Textures/main_blob_2.2_uvset_2_texture_Grey.png" id="7_fdtqv"]
 [ext_resource type="Script" path="res://addons/wigglebone/wiggle_position_modifier_3d.gd" id="8_684kl"]
 [ext_resource type="Script" path="res://addons/wigglebone/wiggle_position_properties_3d.gd" id="9_8ifa7"]
 [ext_resource type="Script" path="res://addons/wigglebone/wiggle_rotation_modifier_3d.gd" id="10_5dpn0"]
@@ -18,15 +18,15 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h1hqr"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rlp06"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kbj4h"]
 render_priority = 0
 shader = ExtResource("6_ivpak")
-shader_parameter/albedo = Color(0, 0.395144, 0.774216, 1)
+shader_parameter/albedo = Color(0.89702, 0.535864, 0, 1)
 shader_parameter/roughness = 0.0
 shader_parameter/metallic_texture_channel = null
 shader_parameter/specular = 0.0
 shader_parameter/metallic = 0.0
-shader_parameter/normal_scale = 0.434
+shader_parameter/normal_scale = 0.0
 shader_parameter/enable_wind = true
 shader_parameter/wind_type = 2
 shader_parameter/wind_strength = 0.058
@@ -36,7 +36,25 @@ shader_parameter/wind_direction = Vector2(1, 1)
 shader_parameter/enable_fade = false
 shader_parameter/fade_start_distance = 50.0
 shader_parameter/fade_length = 20.0
-shader_parameter/texture_albedo = ExtResource("7_bu7us")
+shader_parameter/texture_albedo = ExtResource("7_fdtqv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ajix"]
+blend_mode = 1
+cull_mode = 2
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.951126, 0.439216, 0, 1)
+emission_energy_multiplier = 3.63
+emission_operator = 1
+emission_texture = ExtResource("7_fdtqv")
+rim_tint = 0.53
+subsurf_scatter_strength = 1.0
+subsurf_scatter_transmittance_enabled = true
+subsurf_scatter_transmittance_color = Color(0.899646, 0.526116, 0, 1)
+subsurf_scatter_transmittance_depth = 0.484
+subsurf_scatter_transmittance_boost = 0.11
+grow = true
+grow_amount = 0.01
 
 [sub_resource type="Resource" id="Resource_vo6r1"]
 script = ExtResource("9_8ifa7")
@@ -102,7 +120,7 @@ _player = NodePath("..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00175733, -0.742018, 0.000434998)
-light_color = Color(0.014136, 0.584104, 0.999987, 1)
+light_color = Color(0.9747, 0.314584, 0, 1)
 light_energy = 15.0
 light_size = 0.183
 omni_range = 1.5
@@ -112,7 +130,8 @@ omni_shadow_mode = 0
 transform = Transform3D(1.73104, 0, 0, 0, 1.73104, 0, 0, 0, 1.73104, 0.214539, 0, 0)
 
 [node name="main_blob_2" parent="main_blob_2_1/Skeleton3D" index="0"]
-material_override = SubResource("ShaderMaterial_rlp06")
+material_override = SubResource("ShaderMaterial_kbj4h")
+material_overlay = SubResource("StandardMaterial3D_0ajix")
 cast_shadow = 0
 gi_mode = 2
 
@@ -133,12 +152,12 @@ top_level = false
 visible = true
 visibility_parent = NodePath("")
 active = true
-influence = 0.107
+influence = 0.061
 script = ExtResource("8_684kl")
 bone_name = "Skeleton_Joint"
 properties = SubResource("Resource_vo6r1")
 
-[node name="DMWBWiggleRotationModifier3D" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="2"]
+[node name="DMWBWigglePositionModifier3D2" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="2"]
 _import_path = NodePath("")
 unique_name_in_owner = false
 process_mode = 0
@@ -148,41 +167,19 @@ process_thread_group = 0
 physics_interpolation_mode = 0
 auto_translate_mode = 0
 editor_description = ""
-transform = Transform3D(0.00516737, 0.998146, -0.0606428, -0.0847426, 0.0608625, 0.994542, 0.99639, -1.19209e-07, 0.0849, 0, -0.11, 0)
+transform = Transform3D(-0.00164032, -0.999648, 0.0264885, -0.0617849, 0.0265393, 0.997737, -0.998088, 6.56376e-08, -0.0618066, -0.01, 0.054, 0.014)
 rotation_edit_mode = 0
 rotation_order = 2
 top_level = false
 visible = true
 visibility_parent = NodePath("")
 active = true
-influence = 1.0
-script = ExtResource("10_5dpn0")
-bone_name = "Skeleton_Joint"
-properties = SubResource("Resource_5j7xr")
-
-[node name="DMWBWigglePositionModifier3D2" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="3"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(-0.00164045, -0.999648, 0.0264886, -0.0617849, 0.0265394, 0.997737, -0.998088, 1.25895e-07, -0.0618066, -0.00999999, 0.054, 0.014)
-rotation_edit_mode = 0
-rotation_order = 2
-top_level = false
-visible = true
-visibility_parent = NodePath("")
-active = true
-influence = 0.19
+influence = 0.064
 script = ExtResource("8_684kl")
 bone_name = "Skeleton_Joint (2)"
 properties = SubResource("Resource_vo6r1")
 
-[node name="DMWBWiggleRotationModifier3D2" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="4"]
+[node name="DMWBWigglePositionModifier3D3" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="3"]
 _import_path = NodePath("")
 unique_name_in_owner = false
 process_mode = 0
@@ -192,41 +189,19 @@ process_thread_group = 0
 physics_interpolation_mode = 0
 auto_translate_mode = 0
 editor_description = ""
-transform = Transform3D(-0.00164045, -0.999648, 0.0264886, -0.0617849, 0.0265393, 0.997737, -0.998088, 1.28047e-07, -0.0618066, -0.00999999, 0.054, 0.014)
+transform = Transform3D(1.53334e-08, 1, -5.81054e-08, -4.30411e-08, 2.79767e-08, 1, 1, -6.34856e-08, 9.03862e-08, -0.00400002, 0.28, 2.90527e-08)
 rotation_edit_mode = 0
 rotation_order = 2
 top_level = false
 visible = true
 visibility_parent = NodePath("")
 active = true
-influence = 1.0
-script = ExtResource("10_5dpn0")
-bone_name = "Skeleton_Joint (2)"
-properties = SubResource("Resource_5j7xr")
-
-[node name="DMWBWigglePositionModifier3D3" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="5"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(1.42036e-07, 1, 4.30411e-09, -1.29123e-08, -6.45616e-09, 1, 1, -1.25492e-07, 7.31698e-08, -0.00399999, 0.28, 2.47486e-08)
-rotation_edit_mode = 0
-rotation_order = 2
-top_level = false
-visible = true
-visibility_parent = NodePath("")
-active = true
-influence = 0.405
+influence = 0.238
 script = ExtResource("8_684kl")
 bone_name = "Skeleton_Joint (3)"
 properties = SubResource("Resource_vo6r1")
 
-[node name="DMWBWiggleRotationModifier3D3" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="6"]
+[node name="DMWBWigglePositionModifier3D4" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="4"]
 _import_path = NodePath("")
 unique_name_in_owner = false
 process_mode = 0
@@ -236,20 +211,108 @@ process_thread_group = 0
 physics_interpolation_mode = 0
 auto_translate_mode = 0
 editor_description = ""
-transform = Transform3D(1.4217e-07, 1, -1.11907e-07, -1.29123e-08, 1.09755e-07, 1, 1, -1.25492e-07, 7.31698e-08, -0.00399999, 0.28, 2.47486e-08)
+transform = Transform3D(1, -5.7742e-08, 1.52504e-08, 2.6077e-08, 1, -4.47035e-08, -6.34464e-08, 8.9407e-08, 1, -0.00400003, 0.456, 4.36753e-08)
 rotation_edit_mode = 0
 rotation_order = 2
 top_level = false
 visible = true
 visibility_parent = NodePath("")
 active = true
-influence = 1.0
+influence = 0.264
+script = ExtResource("8_684kl")
+bone_name = "Skeleton_Joint (4)"
+properties = SubResource("Resource_vo6r1")
+
+[node name="DMWBWigglePositionModifier3D5" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="5"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(1, -5.7742e-08, 1.52504e-08, 2.6077e-08, 1, -4.47035e-08, -6.34464e-08, 8.9407e-08, 1, -0.00400004, 0.618, 5.81592e-08)
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+active = true
+influence = 0.293
+script = ExtResource("8_684kl")
+bone_name = "Skeleton_Joint (5)"
+properties = SubResource("Resource_vo6r1")
+
+[node name="DMWBWiggleRotationModifier3D" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="6"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(0.0051688, 0.998145, -0.0606707, -0.0847426, 0.0608904, 0.994541, 0.99639, 7.15256e-07, 0.0849, 0, -0.11, 0)
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+active = true
+influence = 0.305
+script = ExtResource("10_5dpn0")
+bone_name = "Skeleton_Joint"
+properties = SubResource("Resource_5j7xr")
+
+[node name="DMWBWiggleRotationModifier3D2" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="7"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(-0.00164105, -0.999648, 0.0264984, -0.0617849, 0.0265491, 0.997736, -0.998088, 1.4903e-07, -0.0618067, -0.0100014, 0.0539999, 0.014)
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+active = true
+influence = 0.27
+script = ExtResource("10_5dpn0")
+bone_name = "Skeleton_Joint (2)"
+properties = SubResource("Resource_5j7xr")
+
+[node name="DMWBWiggleRotationModifier3D3" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="8"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(1.10427e-07, 1, 1.28456e-05, -4.73452e-08, -1.28284e-05, 1, 1, -1.25492e-07, -5.16493e-08, -0.00400219, 0.28, -2.36726e-08)
+rotation_edit_mode = 0
+rotation_order = 2
+top_level = false
+visible = true
+visibility_parent = NodePath("")
+active = true
+influence = 0.351
 script = ExtResource("10_5dpn0")
 bone_name = "Skeleton_Joint (3)"
 properties = SubResource("Resource_5j7xr")
 handle_distance = 0.57
 
-[node name="DMWBWigglePositionModifier3D4" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="7"]
+[node name="DMWBWiggleRotationModifier3D5" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="9"]
 _import_path = NodePath("")
 unique_name_in_owner = false
 process_mode = 0
@@ -259,41 +322,19 @@ process_thread_group = 0
 physics_interpolation_mode = 0
 auto_translate_mode = 0
 editor_description = ""
-transform = Transform3D(1, -1.11759e-07, 1.42027e-07, 1.08033e-07, 1, -1.49012e-08, -1.25496e-07, 7.45058e-08, 1, -0.00400002, 0.456, 3.82587e-08)
+transform = Transform3D(1, 8.57999e-06, -4.43588e-08, -8.55577e-06, 1, 2.06893e-05, 2.95195e-08, -2.08011e-05, 1, -0.00400144, 0.618, -4.21703e-08)
 rotation_edit_mode = 0
 rotation_order = 2
 top_level = false
 visible = true
 visibility_parent = NodePath("")
 active = true
-influence = 1.0
-script = ExtResource("8_684kl")
-bone_name = "Skeleton_Joint (4)"
-properties = SubResource("Resource_vo6r1")
-
-[node name="DMWBWiggleRotationModifier3D4" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="8"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(1, -1.11759e-07, 1.42027e-07, 1.08033e-07, 1, -1.49012e-08, -1.25496e-07, 7.45058e-08, 1, -0.00400002, 0.456, 3.82587e-08)
-rotation_edit_mode = 0
-rotation_order = 2
-top_level = false
-visible = true
-visibility_parent = NodePath("")
-active = true
-influence = 1.0
+influence = 0.489
 script = ExtResource("10_5dpn0")
-bone_name = "Skeleton_Joint (4)"
+bone_name = "Skeleton_Joint (5)"
 properties = SubResource("Resource_5j7xr")
 
-[node name="DMWBWigglePositionModifier3D5" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="9"]
+[node name="DMWBWiggleRotationModifier3D4" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="10"]
 _import_path = NodePath("")
 unique_name_in_owner = false
 process_mode = 0
@@ -303,38 +344,16 @@ process_thread_group = 0
 physics_interpolation_mode = 0
 auto_translate_mode = 0
 editor_description = ""
-transform = Transform3D(1, -1.11759e-07, 1.42027e-07, 1.08033e-07, 1, -1.49012e-08, -1.25496e-07, 7.45058e-08, 1, -0.00400003, 0.618, 5.03287e-08)
+transform = Transform3D(1, 7.86968e-06, -4.44259e-08, -7.87526e-06, 1, 2.02097e-05, 2.94534e-08, -2.03811e-05, 1, -0.0040018, 0.456, -3.31178e-08)
 rotation_edit_mode = 0
 rotation_order = 2
 top_level = false
 visible = true
 visibility_parent = NodePath("")
 active = true
-influence = 1.0
-script = ExtResource("8_684kl")
-bone_name = "Skeleton_Joint (5)"
-properties = SubResource("Resource_vo6r1")
-
-[node name="DMWBWiggleRotationModifier3D5" type="SkeletonModifier3D" parent="main_blob_2_1/Skeleton3D" index="10"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(1, -6.14673e-08, 1.42027e-07, 5.7742e-08, 1, -2.98023e-08, -1.25496e-07, 8.9407e-08, 1, -0.00400003, 0.618, 5.03287e-08)
-rotation_edit_mode = 0
-rotation_order = 2
-top_level = false
-visible = true
-visibility_parent = NodePath("")
-active = true
-influence = 1.0
+influence = 0.488
 script = ExtResource("10_5dpn0")
-bone_name = "Skeleton_Joint (5)"
+bone_name = "Skeleton_Joint (4)"
 properties = SubResource("Resource_5j7xr")
 
 [editable path="main_blob_2_1"]
