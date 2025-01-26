@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://fccr8ivu6hou"]
+[gd_scene load_steps=30 format=3 uid="uid://fccr8ivu6hou"]
 
 [ext_resource type="PackedScene" uid="uid://usga44akkdwq" path="res://resources/Models/Ground_C_10m.fbx" id="1_xxg0q"]
 [ext_resource type="PackedScene" uid="uid://j4r5cmx4fuxm" path="res://resources/Models/Gound_C_20x_40m.fbx" id="2_nk0pj"]
@@ -20,11 +20,12 @@
 [ext_resource type="PackedScene" uid="uid://o1yu7ydbev14" path="res://Obstacles/GenericObstacle.tscn" id="20_smcmm"]
 [ext_resource type="PackedScene" uid="uid://cnyygeh8pw60g" path="res://resources/Models/Wall_30mOut.fbx" id="21_01gbt"]
 [ext_resource type="PackedScene" uid="uid://b1q6j43baqlwm" path="res://stuff.tscn" id="21_jc27l"]
-[ext_resource type="PackedScene" path="res://Player/game_controller.tscn" id="22_ndojh"]
+[ext_resource type="PackedScene" uid="uid://davj0ik2iqn4u" path="res://Player/game_controller.tscn" id="22_ndojh"]
 [ext_resource type="PackedScene" uid="uid://1inio1igelik" path="res://resources/Models/TerrainBlocker.fbx" id="22_ym0gy"]
 [ext_resource type="PackedScene" uid="uid://b1qcsppy87kf3" path="res://resources/Models/Plants.fbx" id="23_0n4sj"]
 [ext_resource type="PackedScene" uid="uid://cxgb2rwmti5r2" path="res://GUI/UserInterface.tscn" id="23_vtwu0"]
 [ext_resource type="PackedScene" uid="uid://b5d0865ogy3dg" path="res://resources/Models/Pool.fbx" id="24_038vn"]
+[ext_resource type="PackedScene" uid="uid://dgjogpdelh70d" path="res://spirit_spawner.tscn" id="24_kyr5h"]
 
 [sub_resource type="Environment" id="Environment_qqifr"]
 background_mode = 1
@@ -1381,3 +1382,5 @@ transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -14.8641, -20.8465, 28.847
 
 [node name="Obstacle12" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 4.88626, 3.1852, 74.5968)
+
+[node name="SpiritSpawner" parent="." instance=ExtResource("24_kyr5h")]

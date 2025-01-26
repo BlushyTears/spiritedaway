@@ -17,7 +17,7 @@ public partial class PlayerCollideDetector : Node3D
 	public override void _Process(double delta)
 	{
 		float dist = GlobalTransform.Origin.DistanceTo(GameController.thePlayer.GlobalTransform.Origin);
-		if (dist<1.75f && type=="spirit") {
+		if (dist<2.5f && type=="spirit") {
 			Node3D ani = spiritCollectedAnimation.Instantiate<Node3D>();
 			ani.GlobalPosition = GlobalTransform.Origin;
 			GetParent().GetParent().AddChild(ani);
