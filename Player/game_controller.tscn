@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://davj0ik2iqn4u"]
+[gd_scene load_steps=4 format=3 uid="uid://davj0ik2iqn4u"]
 
 [ext_resource type="Script" path="res://Player/GameController.cs" id="1_qt6dx"]
+[ext_resource type="PackedScene" uid="uid://cjqloinv4bv1m" path="res://GUI/IntroMenu.tscn" id="2_gwwfl"]
+[ext_resource type="PackedScene" uid="uid://e7n7eb4nr7ar" path="res://GUI/EndMenu.tscn" id="3_inf6a"]
 
 [node name="GameController" type="Node3D"]
 script = ExtResource("1_qt6dx")
+
+[node name="IntroMenu" parent="." instance=ExtResource("2_gwwfl")]
+
+[node name="EndMenu" parent="." instance=ExtResource("3_inf6a")]
+visible = false

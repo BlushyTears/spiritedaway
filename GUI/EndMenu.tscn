@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://e7n7eb4nr7ar"]
+
+[ext_resource type="Script" path="res://GUI/EndMenu.cs" id="1_deksi"]
+[ext_resource type="Texture2D" uid="uid://net2pylwlchp" path="res://GUI/EndCredits1.png" id="2_j6w8w"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hv6gx"]
+
+[node name="EndMenu" type="CanvasLayer"]
+script = ExtResource("1_deksi")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -842.0
+offset_top = -663.0
+offset_right = 2032.0
+offset_bottom = 1377.0
+texture = SubResource("CanvasTexture_hv6gx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -585.0
+offset_top = -324.0
+offset_right = 1429.0
+offset_bottom = 799.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.583422, 0.583422)
+texture = ExtResource("2_j6w8w")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -154.0
+offset_right = 80.0
+offset_bottom = -114.0
+grow_vertical = 0

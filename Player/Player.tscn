@@ -101,6 +101,7 @@ _cameraHolder = NodePath("CameraHolder")
 _camera = NodePath("CameraHolder/Camera3D")
 _cameraRayCast = NodePath("CameraHolder/RayCast3D")
 _bubbleCollider = NodePath("BubbleShapeCollider")
+_outBubbleTimeWarning = 10.0
 _audioPlayer = NodePath("AudioStreamPlayer3D")
 _soundEnterBubble = ExtResource("2_8okgy")
 _soundLeaveBubble = ExtResource("2_8okgy")
