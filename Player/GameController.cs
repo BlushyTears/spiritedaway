@@ -42,6 +42,10 @@ public partial class GameController : Node3D {  //TODO include this in every (co
 	
 	public override void _Process(double delta)
 	{
+		if (Input.IsActionJustPressed("escape")) {
+			GetTree().Root.PropagateNotification((int)NotificationWMCloseRequest);
+			GetTree().Quit(0);
+		}
 		_portalOpen = _collectedCount>=10;
 		if (thePlayer.GlobalPosition.Y<-5) {
 			DeathStateViaAnything();  //fell off the edge of the map
