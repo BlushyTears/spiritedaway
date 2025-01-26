@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjqloinv4bv1m"]
+
+[ext_resource type="PackedScene" uid="uid://dd8101qxgrhau" path="res://GUI/MenuButton.tscn" id="1_eowm8"]
+[ext_resource type="Script" path="res://GUI/IntroMenu.cs" id="1_yw1de"]
+[ext_resource type="Texture2D" uid="uid://tfr3cqvdfuij" path="res://GUI/logo_with_game.png" id="2_7qkms"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_b8c5b"]
+
+[node name="IntroMenu" type="CanvasLayer"]
+script = ExtResource("1_yw1de")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -842.0
+offset_top = -663.0
+offset_right = 2032.0
+offset_bottom = 1377.0
+texture = SubResource("CanvasTexture_b8c5b")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 1410.0
+offset_bottom = 783.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.583422, 0.583422)
+texture = ExtResource("2_7qkms")
+
+[node name="Btn_Start" parent="TextureRect" instance=ExtResource("1_eowm8")]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 742.0
+offset_top = 806.0
+offset_right = 1250.0
+offset_bottom = 967.0
+text = "Start"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -154.0
+offset_right = 80.0
+offset_bottom = -114.0
+grow_vertical = 0
+
+[connection signal="pressed" from="TextureRect/Btn_Start" to="." method="OnBtnStartPressed"]

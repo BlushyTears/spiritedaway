@@ -112,7 +112,9 @@ public partial class Player : CharacterBody3D
 		// Process time out of bubble
 		if (_controlledBubble == null)
 		{
-			_outBubbleTime += (float)delta;
+			if (!GameController._introMenuOpen && !GameController._victory)
+				_outBubbleTime += (float)delta;
+
 			_avatarModel.Position = _avatarModel.Position.Lerp(Vector3.Zero, (float)delta * 10);
 			GameController.insideBubble = false;
 		} else {

@@ -22,6 +22,13 @@ public partial class PlayerHud : CanvasLayer
 		// Show collected count
 		//_lblCollected.Text = 0 + "/" + 10;
 
+		// Prevent displaying
+		if (GameController._introMenuOpen)
+		{
+			_lblBubbleHint.Text = "";
+			return;
+		}
+
 		// Show bubble hint
 		if (_player.IsInBubble())
 			_lblBubbleHint.Text = "E - leave";

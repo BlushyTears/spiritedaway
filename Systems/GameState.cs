@@ -14,7 +14,7 @@ public partial class GameState : Node
 	public override void _Ready()
 	{
 		_instance = this;
-		Input.MouseMode = Input.MouseModeEnum.Captured;  
+		//Input.MouseMode = Input.MouseModeEnum.Captured;  
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -20,6 +20,7 @@ public partial class GameController : Node3D {  //TODO include this in every (co
 	
 	public static int _hp = 1;
 	public static int _collectedCount = 0;
+	public static bool _introMenuOpen = true;
 	public static bool _victory = false;
 	public static bool _portalOpen = false;
 	public static int _timesDied = 0;
