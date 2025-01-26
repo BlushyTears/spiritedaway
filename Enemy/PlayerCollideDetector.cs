@@ -24,7 +24,7 @@ public partial class PlayerCollideDetector : Node3D
 			GameController._collectedCount++;
 			GetParent().QueueFree();
 		} else if (dist<2 && type=="exitgate") {
-			if (GameController._collectedCount>=5 && !GameController._victory) {
+			if (GameController._portalOpen && !GameController._victory) {
 				GameController.VictoryStateViaExitPortal();
 			}
 		} else if (dist<4 && type=="checkpoint") {
