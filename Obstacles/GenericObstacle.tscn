@@ -1,22 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://o1yu7ydbev14"]
 
 [ext_resource type="Script" path="res://Obstacles/Obstacle.cs" id="1_ro1nm"]
+[ext_resource type="PackedScene" uid="uid://fox0ygu5x3nu" path="res://resources/Props/Bramble.fbx" id="2_dd7hc"]
 
-[sub_resource type="PrismMesh" id="PrismMesh_gtmys"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_134b1"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_bew5v"]
 
 [node name="Obstacle" type="Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_ro1nm")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("PrismMesh_gtmys")
-
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1.52642, 0, 0, 0, 1, 0, 0, 0, 1.42461, -0.0998983, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("BoxShape3D_134b1")
+transform = Transform3D(1.1071, 0, 0, 0, 1.11158, 0, 0, 0, 1.16171, 0, 0, 0)
+shape = SubResource("SphereShape3D_bew5v")
+
+[node name="Bramble" parent="." instance=ExtResource("2_dd7hc")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 
 [connection signal="body_entered" from="Area3D" to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="Area3D" to="." method="OnBodyExited"]

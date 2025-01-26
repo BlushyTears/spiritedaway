@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://fccr8ivu6hou"]
+[gd_scene load_steps=29 format=3 uid="uid://fccr8ivu6hou"]
 
 [ext_resource type="PackedScene" uid="uid://usga44akkdwq" path="res://resources/Models/Ground_C_10m.fbx" id="1_xxg0q"]
 [ext_resource type="PackedScene" uid="uid://j4r5cmx4fuxm" path="res://resources/Models/Gound_C_20x_40m.fbx" id="2_nk0pj"]
@@ -20,10 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://o1yu7ydbev14" path="res://Obstacles/GenericObstacle.tscn" id="20_smcmm"]
 [ext_resource type="PackedScene" uid="uid://cnyygeh8pw60g" path="res://resources/Models/Wall_30mOut.fbx" id="21_01gbt"]
 [ext_resource type="PackedScene" uid="uid://b1q6j43baqlwm" path="res://stuff.tscn" id="21_jc27l"]
-[ext_resource type="PackedScene" uid="uid://davj0ik2iqn4u" path="res://Player/game_controller.tscn" id="22_ndojh"]
+[ext_resource type="PackedScene" path="res://Player/game_controller.tscn" id="22_ndojh"]
 [ext_resource type="PackedScene" uid="uid://1inio1igelik" path="res://resources/Models/TerrainBlocker.fbx" id="22_ym0gy"]
+[ext_resource type="PackedScene" uid="uid://b1qcsppy87kf3" path="res://resources/Models/Plants.fbx" id="23_0n4sj"]
 [ext_resource type="PackedScene" uid="uid://cxgb2rwmti5r2" path="res://GUI/UserInterface.tscn" id="23_vtwu0"]
-[ext_resource type="PackedScene" uid="uid://dgjogpdelh70d" path="res://spirit_spawner.tscn" id="24_kyr5h"]
+[ext_resource type="PackedScene" uid="uid://b5d0865ogy3dg" path="res://resources/Models/Pool.fbx" id="24_038vn"]
 
 [sub_resource type="Environment" id="Environment_qqifr"]
 background_mode = 1
@@ -40,7 +41,14 @@ sdfgi_cascades = 5
 sdfgi_max_distance = 409.6
 sdfgi_energy = 4.0
 glow_enabled = true
-glow_bloom = 0.5
+glow_levels/1 = 0.3
+glow_levels/2 = 0.2
+glow_levels/3 = 0.1
+glow_levels/5 = 0.0
+glow_normalized = true
+glow_intensity = 4.43
+glow_strength = 0.45
+glow_bloom = 0.25
 glow_blend_mode = 0
 fog_enabled = true
 fog_light_color = Color(0.0811829, 0.0801231, 0.202077, 1)
@@ -48,6 +56,8 @@ fog_density = 0.02
 fog_sky_affect = 0.0
 fog_height = -5.0
 fog_height_density = 0.15
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.0728426, 0.0728426, 0.0728426, 1)
 adjustment_enabled = true
 
 [sub_resource type="Compositor" id="Compositor_aq25l"]
@@ -1158,6 +1168,105 @@ transform = Transform3D(-0.102629, 0, 0.904062, 0, 2, 0, -0.867624, 0, -0.106939
 [node name="TerrainBlocker" parent="NavigationRegion3D" instance=ExtResource("22_ym0gy")]
 transform = Transform3D(4.01, 0, 0, 0, 4.01, 0, 0, 0, 4.01, -14.44, 2.82, -7.634)
 
+[node name="Plants" parent="NavigationRegion3D" instance=ExtResource("23_0n4sj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22871, 4.01092, 2.11811)
+
+[node name="Pool" parent="NavigationRegion3D" instance=ExtResource("24_038vn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.83832, 4.33805, -2.60325)
+
 [node name="Control" parent="." instance=ExtResource("23_vtwu0")]
 
-[node name="SpiritSpawner" parent="." instance=ExtResource("24_kyr5h")]
+[node name="DangerBranbles" type="Node3D" parent="."]
+
+[node name="Obstacle" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(2.02682, 0, -4.57077, 0, 5, 0, 4.57077, 0, 2.02682, -1.72655, 1.91823, 36.2489)
+
+[node name="Obstacle13" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -31.2431, 1.59652, 50.5832)
+
+[node name="Obstacle14" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -19.4935, 0.775363, 55.8587)
+
+[node name="Obstacle15" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -60.0309, 7.18916, 38.7886)
+
+[node name="Obstacle16" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -76.1882, 2.95755, -12.3919)
+
+[node name="Obstacle17" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -57.4369, 5.66406, -50.6248)
+
+[node name="Obstacle18" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -24.745, 3.04834, -53.4619)
+
+[node name="Obstacle19" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 27.8036, 3.47006, -43.9351)
+
+[node name="Obstacle20" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 69.0163, 5.99463, -4.80606)
+
+[node name="Obstacle21" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -2.37245, 6.53785, -92.1766)
+
+[node name="Obstacle23" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -13.1389, 6.53785, -92.2514)
+
+[node name="Obstacle24" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -3.65023, 4.97424, -74.1369)
+
+[node name="Obstacle22" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 15.4277, 5.67545, -63.8719)
+
+[node name="Obstacle2" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 20.3657, 2.10021, 20.549)
+
+[node name="Obstacle3" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -11.4769, 5.77581, 3.29627)
+
+[node name="Obstacle4" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 17.0371, 3.22291, -14.2744)
+
+[node name="Obstacle5" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -81.4697, 5.54146, 1.28518)
+
+[node name="Obstacle6" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 41.3768, 5.38252, -14.3714)
+
+[node name="Obstacle7" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(-0.539997, 4.97076, 0, -4.97076, -0.539997, 0, 0, 0, 5, -20.9032, 5.15351, -32.5907)
+
+[node name="Obstacle25" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(1.25773, -4.83923, 0, 4.83923, 1.25773, 0, 0, 0, 5, 0.657144, 5.15351, -32.5907)
+
+[node name="Obstacle8" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 55.3273, 4.56916, 32.06)
+
+[node name="Obstacle9" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(3.7173, 0, -3.3439, 0, 5, 0, 3.3439, 0, 3.7173, -12.3386, 5.80236, 35.7472)
+
+[node name="Obstacle10" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -27.2859, 3.73479, -6.74753)
+
+[node name="Obstacle11" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -43.5718, 9.74812, 25.5967)
+
+[node name="Obstacle26" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(-0.159758, 4.99745, 0, -4.99745, -0.159758, 0, 0, 0, 5, -43.1937, 13.394, 39.2206)
+
+[node name="Obstacle27" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 30.4356, -20.8465, 11.8513)
+
+[node name="Obstacle28" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 2.30014, -20.8465, -28.5066)
+
+[node name="Obstacle29" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -47.5842, -20.8465, -30.5156)
+
+[node name="Obstacle30" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -50.5403, -20.8465, 3.58073)
+
+[node name="Obstacle31" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -14.8416, -20.8465, 28.903)
+
+[node name="Obstacle12" parent="DangerBranbles" instance=ExtResource("20_smcmm")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.89788, 24.0189, 66.7273)
