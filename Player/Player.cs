@@ -77,6 +77,8 @@ public partial class Player : CharacterBody3D
 	public AudioStream _soundOutWarning;
 	bool _outWarningPlayed = false;
 
+	private AmbiencePlayer _ambiencePlayer;
+
 	//--------------------------------------------------
 	// Overrides
 	//--------------------------------------------------
@@ -85,6 +87,12 @@ public partial class Player : CharacterBody3D
 	{
 		base._Ready();
 		GameController.thePlayer = this;
+		_ambiencePlayer = GetNode("/root/AmbiencePlayer") as AmbiencePlayer;
+
+		if (_controlledBubble == null)
+			_ambiencePlayer.PlayOutBubble();
+		else
+			_ambiencePlayer.PlayInBubble();
 	}
 
 	public override void _Process(double delta)
@@ -282,6 +290,8 @@ public partial class Player : CharacterBody3D
 		// Audio
 		_audioPlayer.Stream = _soundEnterBubble;
 		_audioPlayer.Play();
+
+		_ambiencePlayer.PlayInBubble();
 	}
 
 	public void LeaveBubble()
@@ -299,6 +309,8 @@ public partial class Player : CharacterBody3D
 		// Audio
 		_audioPlayer.Stream = _soundLeaveBubble;
 		_audioPlayer.Play();
+
+		_ambiencePlayer.PlayOutBubble();
 	}
 
 	public bool IsInBubble()
@@ -336,6 +348,6 @@ public partial class Player : CharacterBody3D
 
 	public void CollectPoint()
 	{
-		_collectedCount++;
+		//_collectedCount++;
 	}
 }

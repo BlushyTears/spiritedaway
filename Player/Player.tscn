@@ -88,10 +88,10 @@ emission_texture = ExtResource("7_fdtqv")
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_avatarModel", "_capsuleCollider", "_cameraHolder", "_camera", "_cameraRayCast", "_bubbleCollider", "_audioPlayer")]
 script = ExtResource("1_3xaqb")
-_bubbleSpeed = 8.0
-_outSpeed = 4.0
-_bubbleJumpVelocity = 12.0
-_outJumpVelocity = 8.0
+_bubbleSpeed = 4.0
+_outSpeed = 8.0
+_bubbleJumpVelocity = 8.0
+_outJumpVelocity = 12.0
 _jumpGravityModified = 2.0
 _fallGravityModified = 5.0
 _avatarModel = NodePath("MeshInstance3D")
