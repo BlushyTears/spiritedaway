@@ -79,6 +79,10 @@ public partial class Player : CharacterBody3D
 
 	private AmbiencePlayer _ambiencePlayer;
 
+	[Export]
+	public Timer _deathTimer;
+	public bool _deathTimerStarted;
+
 	//--------------------------------------------------
 	// Overrides
 	//--------------------------------------------------
@@ -93,6 +97,8 @@ public partial class Player : CharacterBody3D
 			_ambiencePlayer.PlayOutBubble();
 		else
 			_ambiencePlayer.PlayInBubble();
+
+		_hp = 1;
 	}
 
 	public override void _Process(double delta)
@@ -131,12 +137,19 @@ public partial class Player : CharacterBody3D
 		//if (_outBubbleTime >= _outBubbleTimeWarning && _outBubbleTime < _outBubbleTimeWarning)
 
 		if (_outBubbleTime >= _outBubbleTimeDead)
+		{
+			GD.Print("this1");
 			SubtractHP(_hp);
+			_outBubbleTime = 0;
+		}
 			
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if (_hp <= 0)
+			return;
+
 		Vector3 velocity = Velocity;
 
 		// Add the gravity.
@@ -337,15 +350,21 @@ public partial class Player : CharacterBody3D
 	public void SubtractHP(int dmg)
 	{
 		_hp -= dmg;
-		
 
 		// Die
 		if (_hp <= 0)
 		{
-			
-			_outBubbleTime = 0;
-			GameController.DeathStateViaAnything();
+			// Run timer
+			_deathTimer.Start();
+			//GD.Print("start dying");
 		}
+	}
+
+	private void OnDeathTimerTimeout()
+	{
+		_outBubbleTime = 0;
+		GameController.DeathStateViaAnything();
+		_hp = 1;
 	}
 
 	public void CollectPoint()
