@@ -317,7 +317,7 @@ public partial class Player : CharacterBody3D
 		}
 
 		// Move camera
-		_camera.GlobalPosition = _camera.GlobalPosition.Lerp(_cameraRayCast.GetCollisionPoint() * 0.8f, _cameraLerpSpeed);
+		_camera.GlobalPosition = _camera.GlobalPosition.Lerp(_cameraRayCast.GetCollisionPoint(), _cameraLerpSpeed);
 	}
 
 	public void SubtractHP(int dmg)
