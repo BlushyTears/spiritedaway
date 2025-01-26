@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://lrhm5qe4pd44" path="res://Player/Player.tscn" id="1_mec3x"]
 [ext_resource type="PackedScene" uid="uid://rnscx2wflgbn" path="res://Player/PlayerBubble.tscn" id="2_bkcdh"]
-[ext_resource type="PackedScene" uid="uid://dbl6pdrbjbanq" path="res://Particles.tscn" id="2_jh1xk"]
+[ext_resource type="PackedScene" uid="uid://bqh1n6tnggwyk" path="res://Particles.tscn" id="2_jh1xk"]
 [ext_resource type="PackedScene" uid="uid://bs8205wr8uftb" path="res://Enemy/very_scared_spirit.tscn" id="3_j5i6y"]
 [ext_resource type="PackedScene" uid="uid://cm58k3h6rhyew" path="res://Placeable/exit_gate.tscn" id="4_h7fh3"]
 [ext_resource type="PackedScene" uid="uid://dtwai3lccrxuv" path="res://Placeable/checkpoint.tscn" id="5_fjwj2"]
