@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://o1yu7ydbev14" path="res://Obstacles/GenericObstacle.tscn" id="20_smcmm"]
 [ext_resource type="PackedScene" uid="uid://cnyygeh8pw60g" path="res://resources/Models/Wall_30mOut.fbx" id="21_01gbt"]
 [ext_resource type="PackedScene" uid="uid://b1q6j43baqlwm" path="res://stuff.tscn" id="21_jc27l"]
-[ext_resource type="PackedScene" uid="uid://davj0ik2iqn4u" path="res://Player/game_controller.tscn" id="22_ndojh"]
+[ext_resource type="PackedScene" path="res://Player/game_controller.tscn" id="22_ndojh"]
 [ext_resource type="PackedScene" uid="uid://1inio1igelik" path="res://resources/Models/TerrainBlocker.fbx" id="22_ym0gy"]
 [ext_resource type="PackedScene" uid="uid://cxgb2rwmti5r2" path="res://GUI/UserInterface.tscn" id="23_vtwu0"]
 

@@ -48,6 +48,7 @@ emission_energy_multiplier = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5iwma"]
 transparency = 1
+vertex_color_use_as_albedo = true
 albedo_color = Color(1, 0.966667, 0, 0.756863)
 emission_enabled = true
 emission = Color(1, 0.962196, 0.290693, 1)
@@ -89,6 +90,7 @@ anim_speed_max = 1.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bbcel"]
 transparency = 1
 blend_mode = 1
+vertex_color_use_as_albedo = true
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
 emission = Color(0.31748, 0.0709178, 0.518734, 1)
@@ -97,14 +99,15 @@ emission_energy_multiplier = 0.2
 [sub_resource type="SphereMesh" id="SphereMesh_vhoc2"]
 
 [sub_resource type="Gradient" id="Gradient_ajdxq"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0.0144928, 0.293478, 0.648551, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 1, 0.0525874, 0.0525874, 0.0525874, 0.947413, 0.854545, 0.854545, 0.854545, 0.145455)
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81425, 0)
 script = SubResource("CSharpScript_fqhi8")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.28, 1.808, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.808, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.158343)
@@ -112,9 +115,9 @@ mesh = SubResource("SphereMesh_n3ymn")
 surface_material_override/0 = SubResource("StandardMaterial3D_k31bh")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0443945, 0.0462799, -0.187846)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.046, 0)
 material_override = SubResource("StandardMaterial3D_5iwma")
-amount = 400
+amount = 100
 lifetime = 1.5
 speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_7pxaq")
@@ -127,8 +130,9 @@ radius = 5.0
 [node name="PurpleNorth" type="CPUParticles3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347217, 0.13884, -12.7525)
 material_override = SubResource("StandardMaterial3D_bbcel")
+cast_shadow = 0
 amount = 50
-lifetime = 1.5
+lifetime = 10.0
 preprocess = 0.5
 speed_scale = 0.7
 fixed_fps = 30
@@ -137,11 +141,12 @@ mesh = SubResource("SphereMesh_vhoc2")
 emission_shape = 1
 emission_sphere_radius = 10.0
 spread = 180.0
-gravity = Vector3(0, 0, 0)
-angular_velocity_min = -1.60933e-05
-angular_velocity_max = 50.0
+gravity = Vector3(0, 0.205, 0)
+initial_velocity_max = 0.5
+angular_velocity_min = -88.89
+angular_velocity_max = 10.0
 angle_min = 1.07288e-05
-angle_max = 1.07288e-05
+angle_max = 720.0
 scale_amount_min = 0.3
 scale_amount_max = 0.3
 scale_amount_curve = SubResource("Curve_6suu8")
@@ -153,8 +158,9 @@ anim_speed_max = 1.5
 [node name="PurpleSouth" type="CPUParticles3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.291967, 0.18512, 11.6166)
 material_override = SubResource("StandardMaterial3D_bbcel")
+cast_shadow = 0
 amount = 50
-lifetime = 1.5
+lifetime = 10.0
 preprocess = 0.5
 speed_scale = 0.7
 fixed_fps = 30
@@ -163,11 +169,12 @@ mesh = SubResource("SphereMesh_vhoc2")
 emission_shape = 1
 emission_sphere_radius = 10.0
 spread = 180.0
-gravity = Vector3(0, 0, 0)
+gravity = Vector3(0, 0.1, 0)
+initial_velocity_max = 0.5
 angular_velocity_min = -1.60933e-05
-angular_velocity_max = 50.0
+angular_velocity_max = 10.0
 angle_min = 1.07288e-05
-angle_max = 1.07288e-05
+angle_max = 720.0
 scale_amount_min = 0.3
 scale_amount_max = 0.3
 scale_amount_curve = SubResource("Curve_6suu8")
@@ -179,8 +186,9 @@ anim_speed_max = 1.5
 [node name="PurpleSouth2" type="CPUParticles3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6505, 0.555359, -0.563934)
 material_override = SubResource("StandardMaterial3D_bbcel")
+cast_shadow = 0
 amount = 50
-lifetime = 1.5
+lifetime = 10.0
 preprocess = 0.5
 speed_scale = 0.7
 fixed_fps = 30
@@ -189,13 +197,14 @@ mesh = SubResource("SphereMesh_vhoc2")
 emission_shape = 1
 emission_sphere_radius = 10.0
 spread = 180.0
-gravity = Vector3(0, 0, 0)
+gravity = Vector3(0, 0.1, 0)
+initial_velocity_max = 0.5
 angular_velocity_min = -1.60933e-05
-angular_velocity_max = 50.0
+angular_velocity_max = 10.0
 angle_min = 1.07288e-05
-angle_max = 1.07288e-05
+angle_max = 720.0
 scale_amount_min = 0.3
-scale_amount_max = 0.3
+scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_6suu8")
 color_ramp = SubResource("Gradient_ajdxq")
 color_initial_ramp = SubResource("Gradient_gyryx")
@@ -205,8 +214,9 @@ anim_speed_max = 1.5
 [node name="PurpleSouth3" type="CPUParticles3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.434, 0.370239, -0.273476)
 material_override = SubResource("StandardMaterial3D_bbcel")
+cast_shadow = 0
 amount = 50
-lifetime = 1.5
+lifetime = 10.0
 preprocess = 0.5
 speed_scale = 0.7
 fixed_fps = 30
@@ -215,13 +225,14 @@ mesh = SubResource("SphereMesh_vhoc2")
 emission_shape = 1
 emission_sphere_radius = 10.0
 spread = 180.0
-gravity = Vector3(0, 0, 0)
+gravity = Vector3(0, 0.1, 0)
+initial_velocity_max = 0.5
 angular_velocity_min = -1.60933e-05
-angular_velocity_max = 50.0
+angular_velocity_max = 10.0
 angle_min = 1.07288e-05
-angle_max = 1.07288e-05
+angle_max = 720.0
 scale_amount_min = 0.3
-scale_amount_max = 0.3
+scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_6suu8")
 color_ramp = SubResource("Gradient_ajdxq")
 color_initial_ramp = SubResource("Gradient_gyryx")
